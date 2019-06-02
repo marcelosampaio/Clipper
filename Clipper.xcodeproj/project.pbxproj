@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		7F398DD822A420C50002AFCF /* Database.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F398DD722A420C50002AFCF /* Database.swift */; };
 		7FA67A0D22A41881004236CD /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FA67A0C22A41881004236CD /* AppDelegate.swift */; };
 		7FA67A1222A41881004236CD /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7FA67A1022A41881004236CD /* Main.storyboard */; };
 		7FA67A1422A41883004236CD /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7FA67A1322A41883004236CD /* Assets.xcassets */; };
@@ -15,6 +16,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		7F398DD722A420C50002AFCF /* Database.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Database.swift; sourceTree = "<group>"; };
 		7FA67A0922A41881004236CD /* Clipper.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Clipper.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		7FA67A0C22A41881004236CD /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		7FA67A1122A41881004236CD /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -35,6 +37,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		7F398DD622A420B20002AFCF /* Database */ = {
+			isa = PBXGroup;
+			children = (
+				7F398DD722A420C50002AFCF /* Database.swift */,
+			);
+			path = Database;
+			sourceTree = "<group>";
+		};
 		7FA67A0022A41881004236CD = {
 			isa = PBXGroup;
 			children = (
@@ -54,6 +64,7 @@
 		7FA67A0B22A41881004236CD /* Clipper */ = {
 			isa = PBXGroup;
 			children = (
+				7F398DD622A420B20002AFCF /* Database */,
 				7FA67A1E22A418A5004236CD /* Controller */,
 				7FA67A2222A41904004236CD /* User Interface */,
 				7FA67A2122A418F5004236CD /* Root */,
@@ -159,6 +170,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7F398DD822A420C50002AFCF /* Database.swift in Sources */,
 				7FA67A2022A418C7004236CD /* MainController.swift in Sources */,
 				7FA67A0D22A41881004236CD /* AppDelegate.swift in Sources */,
 			);
