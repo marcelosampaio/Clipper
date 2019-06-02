@@ -20,21 +20,31 @@
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="QNf-wt-Tsp">
                                 <rect key="frame" x="0.0" y="818" width="414" height="44"/>
-                                <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <color key="backgroundColor" red="1" green="0.83137254900000002" blue="0.47450980390000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="44" id="RJ5-Z5-54Z"/>
                                 </constraints>
                             </view>
+                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="hybrid" translatesAutoresizingMaskIntoConstraints="NO" id="4St-8W-W8P">
+                                <rect key="frame" x="0.0" y="88" width="414" height="730"/>
+                            </mapView>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="QNf-wt-Tsp" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="Iga-mD-fdq"/>
+                            <constraint firstItem="4St-8W-W8P" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="dHC-1h-9Dz"/>
+                            <constraint firstItem="4St-8W-W8P" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="eOj-Yu-tc4"/>
                             <constraint firstItem="QNf-wt-Tsp" firstAttribute="bottom" secondItem="6Tk-OE-BBY" secondAttribute="bottom" id="fhS-DC-mAb"/>
+                            <constraint firstItem="4St-8W-W8P" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="gVe-Se-iPo"/>
+                            <constraint firstItem="QNf-wt-Tsp" firstAttribute="top" secondItem="4St-8W-W8P" secondAttribute="bottom" id="iCn-EP-uhS"/>
                             <constraint firstItem="QNf-wt-Tsp" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="tNx-qR-fDd"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
                     <navigationItem key="navigationItem" title="Clipper" id="ijt-5i-HRh"/>
+                    <connections>
+                        <outlet property="mapView" destination="4St-8W-W8P" id="wVn-R5-AJX"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
