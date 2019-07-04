@@ -28,12 +28,17 @@
                             <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="hybrid" translatesAutoresizingMaskIntoConstraints="NO" id="4St-8W-W8P">
                                 <rect key="frame" x="0.0" y="64" width="414" height="628"/>
                             </mapView>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="miraBoldRed" translatesAutoresizingMaskIntoConstraints="NO" id="xCv-KC-Emb">
+                                <rect key="frame" x="157" y="318" width="100" height="100"/>
+                            </imageView>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="QNf-wt-Tsp" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="Iga-mD-fdq"/>
+                            <constraint firstItem="xCv-KC-Emb" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="SCT-Xj-PPF"/>
                             <constraint firstItem="4St-8W-W8P" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="dHC-1h-9Dz"/>
                             <constraint firstItem="4St-8W-W8P" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="eOj-Yu-tc4"/>
+                            <constraint firstItem="xCv-KC-Emb" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="fLJ-s6-F5U"/>
                             <constraint firstItem="QNf-wt-Tsp" firstAttribute="bottom" secondItem="6Tk-OE-BBY" secondAttribute="bottom" id="fhS-DC-mAb"/>
                             <constraint firstItem="4St-8W-W8P" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="gVe-Se-iPo"/>
                             <constraint firstItem="QNf-wt-Tsp" firstAttribute="top" secondItem="4St-8W-W8P" secondAttribute="bottom" id="iCn-EP-uhS"/>
@@ -69,4 +74,7 @@
             <point key="canvasLocation" x="108.69565217391305" y="-653.57142857142856"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="miraBoldRed" width="100" height="100"/>
+    </resources>
 </document>

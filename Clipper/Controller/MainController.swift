@@ -97,7 +97,11 @@ class MainController: UIViewController, CLLocationManagerDelegate, MKMapViewDele
                     print("📍  thoroughfare : \(String(describing: placemark.thoroughfare))")
                     print("📍  subThoroughfare : \(String(describing: placemark.subThoroughfare))")
                     print("📍  region : \(String(describing: placemark.region))")
+                    print("📍  postalCode : \(String(describing: placemark.postalCode))")
+                    print("📍  country : \(String(describing: placemark.country))")
+                    print("📍  timeZone : \(String(describing: placemark.timeZone))")
                     print("📍 ----------------------------------------------------------------------")
+                
                 }
                 
                 
