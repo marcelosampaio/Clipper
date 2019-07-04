@@ -9,7 +9,7 @@
 import UIKit
 import MapKit
 
-class MainController: UIViewController, CLLocationManagerDelegate {
+class MainController: UIViewController, CLLocationManagerDelegate, MKMapViewDelegate {
     
     // MARK: - Propertires
     private let regionRadius: CLLocationDistance = 1000
@@ -32,6 +32,9 @@ class MainController: UIViewController, CLLocationManagerDelegate {
     
     // MARK: - Map Helpers
     private func initialProcedures() {
+        
+        // For MKMapViewDelegate usage
+        mapView.delegate = self
         
         // User's permissions for the map
         locationManager.requestWhenInUseAuthorization()
@@ -56,13 +59,21 @@ class MainController: UIViewController, CLLocationManagerDelegate {
         // stop updating user's location
         locationManager.stopUpdatingLocation()
         
-        print("⭐️⭐️⭐️⭐️⭐️ locations = \(locValue.latitude) \(locValue.longitude)")
+        print("⭐️ locations = \(locValue.latitude) \(locValue.longitude)")
         
         // init and center map
         let initialLocation = CLLocation(latitude: locValue.latitude, longitude: locValue.longitude)
         centerMapOnLocation(location: initialLocation)
         
     }
+    
+    // MARK: - MKMapViewDelegate Delegate
+    func mapView(_ mapView: MKMapView, regionDidChangeAnimated animated: Bool) {
+        let center = mapView.centerCoordinate
+        print("⭐️ center latitude: \(center.latitude)  longitude: \(center.longitude)")
+    }
+    
+    
     
     
 }
