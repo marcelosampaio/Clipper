@@ -71,9 +71,74 @@ class MainController: UIViewController, CLLocationManagerDelegate, MKMapViewDele
     func mapView(_ mapView: MKMapView, regionDidChangeAnimated animated: Bool) {
         let center = mapView.centerCoordinate
         print("⭐️ center latitude: \(center.latitude)  longitude: \(center.longitude)")
+        
+        getGeoCode(center)
+        
     }
     
     
     
+    private func getGeoCode(_ coordinate: CLLocationCoordinate2D) {
+        let geocoder = CLGeocoder()
+    
+        let latitude : CLLocationDegrees = coordinate.latitude
+        let logintude : CLLocationDegrees = coordinate.longitude
+        
+        let location : CLLocation = CLLocation(latitude: latitude, longitude: logintude)
+        
+
+        
+        geocoder.reverseGeocodeLocation(location) { (placemarks, error) in
+            // completion
+            if error == nil {
+                for placemark in placemarks! {
+                    print("📍  locality : \(String(describing: placemark.locality))")
+                    print("📍  subLocality : \(String(describing: placemark.subLocality))")
+                    print("📍  thoroughfare : \(String(describing: placemark.thoroughfare))")
+                    print("📍  subThoroughfare : \(String(describing: placemark.subThoroughfare))")
+                    print("📍  region : \(String(describing: placemark.region))")
+                    print("📍 ----------------------------------------------------------------------")
+                }
+                
+                
+                
+                
+            }else{
+                // ERROR OCCURRED
+                print("🔴 error: \(String(describing: error))")
+            }
+        }
+        
+    }
+    
+    
+    //////
+    /*
+    func lookUpCurrentLocation(completionHandler: @escaping (CLPlacemark?)
+        -> Void ) {
+        // Use the last reported location.
+        if let lastLocation = self.locationManager.location {
+            let geocoder = CLGeocoder()
+            
+            // Look up the location and pass it to the completion handler
+            geocoder.reverseGeocodeLocation(lastLocation,
+                                            completionHandler: { (placemarks, error) in
+                                                if error == nil {
+                                                    let firstLocation = placemarks?[0]
+                                                    completionHandler(firstLocation)
+                                                }
+                                                else {
+                                                    // An error occurred during geocoding.
+                                                    completionHandler(nil)
+                                                }
+            })
+        }
+        else {
+            // No location was available.
+            completionHandler(nil)
+        }
+    }
+    
+    */
     
 }
