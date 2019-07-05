@@ -20,9 +20,21 @@
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="QNf-wt-Tsp">
                                 <rect key="frame" x="0.0" y="692" width="414" height="44"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" minimumFontSize="6" translatesAutoresizingMaskIntoConstraints="NO" id="xDO-fH-XS7">
+                                        <rect key="frame" x="8" y="6" width="398" height="33"/>
+                                        <fontDescription key="fontDescription" type="system" weight="thin" pointSize="11"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
+                                    <constraint firstAttribute="bottom" secondItem="xDO-fH-XS7" secondAttribute="bottom" constant="5" id="6MH-Xr-a22"/>
+                                    <constraint firstItem="xDO-fH-XS7" firstAttribute="leading" secondItem="QNf-wt-Tsp" secondAttribute="leading" constant="8" id="IGK-2y-9lU"/>
                                     <constraint firstAttribute="height" constant="44" id="RJ5-Z5-54Z"/>
+                                    <constraint firstAttribute="trailing" secondItem="xDO-fH-XS7" secondAttribute="trailing" constant="8" id="Xzg-fh-24n"/>
+                                    <constraint firstItem="xDO-fH-XS7" firstAttribute="top" secondItem="QNf-wt-Tsp" secondAttribute="top" constant="6" id="YOI-Qh-nbL"/>
                                 </constraints>
                             </view>
                             <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="hybrid" translatesAutoresizingMaskIntoConstraints="NO" id="4St-8W-W8P">
@@ -48,12 +60,13 @@
                     </view>
                     <navigationItem key="navigationItem" title="Clipper" id="ijt-5i-HRh"/>
                     <connections>
+                        <outlet property="addressLabel" destination="xDO-fH-XS7" id="gyl-tW-vkd"/>
                         <outlet property="mapView" destination="4St-8W-W8P" id="wVn-R5-AJX"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1011.5942028985507" y="-654.24107142857144"/>
+            <point key="canvasLocation" x="1011.5942028985507" y="-654.61956521739137"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="jha-bs-H6Q">

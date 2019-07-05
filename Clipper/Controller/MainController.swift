@@ -19,6 +19,7 @@ class MainController: UIViewController, CLLocationManagerDelegate, MKMapViewDele
     // MARK: - Outlets
     
     @IBOutlet weak var mapView: MKMapView!
+    @IBOutlet weak var addressLabel: UILabel!
     
     // MARK: - View Life Cycle
     override func viewDidLoad() {
@@ -102,6 +103,29 @@ class MainController: UIViewController, CLLocationManagerDelegate, MKMapViewDele
                     print("📍  timeZone : \(String(describing: placemark.timeZone))")
                     print("📍 ----------------------------------------------------------------------")
                 
+                    var address = String()
+                    var separator = String()
+                    if let temp = placemark.locality {
+                        address = temp
+                        separator = " - "
+                    }
+                    if let temp = placemark.subLocality {
+                        address = address + separator + temp
+                    }
+                    if let temp = placemark.thoroughfare {
+                        address = address + separator + temp
+                    }
+                    if let temp = placemark.subThoroughfare {
+                        address = address + separator + temp
+                    }
+                    if let temp = placemark.postalCode {
+                        address = address + separator + temp
+                    }
+                    if let temp = placemark.country {
+                        address = address + separator + temp
+                    }
+                    
+                    self.addressLabel.text = address
                 }
                 
                 
