@@ -12,6 +12,8 @@ class InputLocationController: UIViewController {
 
     // MARK: - Outlets
     @IBOutlet weak var saveButton: UIButton!
+    @IBOutlet weak var location: UITextField!
+    @IBOutlet weak var reference: UITextField!
     
     
     
@@ -32,6 +34,20 @@ class InputLocationController: UIViewController {
     @IBAction func closeView(_ sender: Any) {
         self.dismiss(animated: true, completion: nil)
     }
+    
+    @IBAction func saveAction(_ sender: Any) {
+        
+        if !location.text!.isValidName()! {
+            view.alert(msg: "Informe o nome da localidade!", sender: self)
+            return
+        }
+        
+        print("🧨 SAVE ACTION")
+        
+        // dismiss view controller
+        self.dismiss(animated: true, completion: nil)
+    }
+    
     
 
 }

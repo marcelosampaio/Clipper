@@ -155,6 +155,9 @@
                                         </constraints>
                                         <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                         <state key="normal" title="Salvar"/>
+                                        <connections>
+                                            <action selector="saveAction:" destination="Eqp-fv-bfG" eventType="touchUpInside" id="RGt-22-TgB"/>
+                                        </connections>
                                     </button>
                                 </subviews>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -196,6 +199,8 @@
                         <viewLayoutGuide key="safeArea" id="uqO-K9-p1M"/>
                     </view>
                     <connections>
+                        <outlet property="location" destination="8my-zK-49J" id="Rmf-SI-ZKs"/>
+                        <outlet property="reference" destination="YOI-3r-2E3" id="lAa-QA-QLO"/>
                         <outlet property="saveButton" destination="3yV-cQ-dd0" id="uu1-Zi-lvH"/>
                     </connections>
                 </viewController>
