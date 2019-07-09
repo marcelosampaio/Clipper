@@ -133,34 +133,18 @@ class MainController: UIViewController, CLLocationManagerDelegate, MKMapViewDele
         
     }
     
+    // MARK: - UI Acitions
     
-    //////
-    /*
-    func lookUpCurrentLocation(completionHandler: @escaping (CLPlacemark?)
-        -> Void ) {
-        // Use the last reported location.
-        if let lastLocation = self.locationManager.location {
-            let geocoder = CLGeocoder()
-            
-            // Look up the location and pass it to the completion handler
-            geocoder.reverseGeocodeLocation(lastLocation,
-                                            completionHandler: { (placemarks, error) in
-                                                if error == nil {
-                                                    let firstLocation = placemarks?[0]
-                                                    completionHandler(firstLocation)
-                                                }
-                                                else {
-                                                    // An error occurred during geocoding.
-                                                    completionHandler(nil)
-                                                }
-            })
-        }
-        else {
-            // No location was available.
-            completionHandler(nil)
-        }
+    @IBAction func prepareNewLocation(_ sender: Any) {
+        print("🔸 prepare new location on map")
+        performSegue(withIdentifier: "showInput", sender: self)
     }
     
-    */
+    // MARK: - Navigation
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+//        if segue.identifier == "" {
+//            
+//        }
+    }
     
 }
