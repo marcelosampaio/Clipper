@@ -81,13 +81,7 @@ class MainController: UIViewController, CLLocationManagerDelegate, MKMapViewDele
     
     private func getGeoCode(_ coordinate: CLLocationCoordinate2D) {
         let geocoder = CLGeocoder()
-    
-        let latitude : CLLocationDegrees = coordinate.latitude
-        let logintude : CLLocationDegrees = coordinate.longitude
-        
-        let location : CLLocation = CLLocation(latitude: latitude, longitude: logintude)
-        
-
+        let location : CLLocation = CLLocation(latitude: coordinate.latitude, longitude: coordinate.longitude)
         
         geocoder.reverseGeocodeLocation(location) { (placemarks, error) in
             // completion
