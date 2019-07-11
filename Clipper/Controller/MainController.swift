@@ -12,6 +12,7 @@ import MapKit
 class MainController: UIViewController, CLLocationManagerDelegate, MKMapViewDelegate {
     
     // MARK: - Propertires
+    private var database = Database()
     private let regionRadius: CLLocationDistance = 1000
     private let locationManager = CLLocationManager()
     
@@ -25,6 +26,9 @@ class MainController: UIViewController, CLLocationManagerDelegate, MKMapViewDele
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        // prepare database
+        database.prepareDatabase()
+        
         // initial procedures
         initialProcedures()
 
