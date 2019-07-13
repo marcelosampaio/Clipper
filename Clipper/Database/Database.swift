@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import UIKit
 import SQLite3
 
 class Database : NSObject {
@@ -17,6 +18,24 @@ class Database : NSObject {
     
     
     // MARK: - Database Queries
+    public func addLocation(location: String, reference: String, coordinate: CGPoint) {
+        
+        self.openDB()
+        
+        let sql = "here comes the insert statment"
+        
+        print("👉 addLocation SQL: \(sql)")
+        
+        if sqlite3_exec(db, sql, nil, nil, nil) != SQLITE_OK {
+            print("🆘 error inserting row to the table 🆘")
+            return
+        }else{
+            print("👉 insert OK")
+        }
+        
+        self.closeDB()
+        
+    }
 //    public func getCountries() -> Array<Any> {
 //
 //        // open Database
