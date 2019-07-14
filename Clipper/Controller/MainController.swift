@@ -17,6 +17,7 @@ class MainController: UIViewController, CLLocationManagerDelegate, MKMapViewDele
     private let locationManager = CLLocationManager()
     private var coordinate = CLLocationCoordinate2D()
     private var locations = [LocationRow]()
+    private var annotations = [MKPointAnnotation]()
     
     
     // MARK: - Outlets
@@ -60,8 +61,26 @@ class MainController: UIViewController, CLLocationManagerDelegate, MKMapViewDele
     }
     
     private func getLocations() {
+        
+        // Remove all previous annotations
+        self.mapView.removeAnnotations(annotations)
+        annotations.removeAll()
+        
         locations = database.getLocations()
-        print("......")
+        
+        for location in locations {
+            let myAnnotation: MKPointAnnotation = MKPointAnnotation()
+            myAnnotation.coordinate = CLLocationCoordinate2DMake(CLLocationDegrees(location.latitude), CLLocationDegrees(location.longitude));
+            myAnnotation.title = location.location
+            
+            mapView.addAnnotation(myAnnotation)
+            annotations.append(myAnnotation)
+            
+            print("💥 db location: \(location.location)")
+            print("💥 db latitude: \(location.latitude)")
+            print("💥 db longitude: \(location.longitude)")
+            print("💥 ------------------------------------------ 💥")
+        }
     }
     
 
