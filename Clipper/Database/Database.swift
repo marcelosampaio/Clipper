@@ -9,6 +9,7 @@
 import Foundation
 import UIKit
 import SQLite3
+import MapKit
 
 class Database : NSObject {
     
@@ -18,13 +19,13 @@ class Database : NSObject {
     
     
     // MARK: - Database Queries
-    public func addLocation(location: String, reference: String, coordinate: CGPoint) {
+    public func addLocation(location: String, reference: String, coordinate: CLLocationCoordinate2D) {
         
         self.openDB()
         
-        let sql = "here comes the insert statment"
+        let sql = self.getInsertLocationStatment(location: location, reference: reference, coordinate: coordinate)
         
-        print("👉 addLocation SQL: \(sql)")
+        print("🤙 sql: \(sql)")
         
         if sqlite3_exec(db, sql, nil, nil, nil) != SQLITE_OK {
             print("🆘 error inserting row to the table 🆘")
@@ -265,5 +266,21 @@ class Database : NSObject {
         }
         return result
     }
+    
+    // MARK: - Sql Statment
+    private func getInsertLocationStatment(location: String, reference: String, coordinate: CLLocationCoordinate2D) -> String {
+        
+        let sqlStatment = Database.getSql("insertLocation")
+        
+        var sql = sqlStatment.replacingOccurrences(of: "[LOCATION]", with: location)
+        sql = sql.replacingOccurrences(of: "[REFERENCE]", with: reference)
+        sql = sql.replacingOccurrences(of: "[LATITUDE]", with: String(coordinate.latitude))
+        sql = sql.replacingOccurrences(of: "[LONGITUDE]", with: String(coordinate.longitude))
+        
+        return sql
+    }
+    
+    
+    
 }
 

@@ -15,6 +15,7 @@ class MainController: UIViewController, CLLocationManagerDelegate, MKMapViewDele
     private var database = Database()
     private let regionRadius: CLLocationDistance = 1000
     private let locationManager = CLLocationManager()
+    private var coordinate = CLLocationCoordinate2D()
     
     
     // MARK: - Outlets
@@ -74,10 +75,10 @@ class MainController: UIViewController, CLLocationManagerDelegate, MKMapViewDele
     
     // MARK: - MKMapViewDelegate Delegate
     func mapView(_ mapView: MKMapView, regionDidChangeAnimated animated: Bool) {
-        let center = mapView.centerCoordinate
-        print("⭐️ center latitude: \(center.latitude)  longitude: \(center.longitude)")
+        coordinate = mapView.centerCoordinate
+        print("⭐️ center latitude: \(coordinate.latitude)  longitude: \(coordinate.longitude)")
         
-        getGeoCode(center)
+        getGeoCode(coordinate)
         
     }
     
@@ -146,9 +147,10 @@ class MainController: UIViewController, CLLocationManagerDelegate, MKMapViewDele
     
     // MARK: - Navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-//        if segue.identifier == "" {
-//            
-//        }
+        if segue.identifier == "showInput" {
+            let controller = segue.destination as! InputLocationController
+            controller.coordinate = coordinate
+        }
     }
     
 }

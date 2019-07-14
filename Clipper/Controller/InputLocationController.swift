@@ -7,8 +7,15 @@
 //
 
 import UIKit
+import MapKit
 
 class InputLocationController: UIViewController {
+    
+    // MARK: - Properties
+    public var coordinate = CLLocationCoordinate2D()
+    
+    private var database = Database()
+    
 
     // MARK: - Outlets
     @IBOutlet weak var saveButton: UIButton!
@@ -43,6 +50,11 @@ class InputLocationController: UIViewController {
         }
         
         print("🧨 SAVE ACTION")
+        
+        
+        database.addLocation(location: location.text!, reference: reference.text!, coordinate: coordinate)
+        
+        
         
         // dismiss view controller
         self.dismiss(animated: true, completion: nil)

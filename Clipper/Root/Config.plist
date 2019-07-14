@@ -2,7 +2,7 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
-	<key>getSqlSample</key>
-	<string>select * from teste</string>
+	<key>insertLocation</key>
+	<string>insert into location (location, latitude, longitude, reference) values (&apos;[LOCATION]&apos;, [LATITUDE], [LONGITUDE], &apos;[REFERENCE]&apos;)</string>
 </dict>
 </plist>
