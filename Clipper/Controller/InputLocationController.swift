@@ -9,12 +9,22 @@
 import UIKit
 import MapKit
 
+// MARK: - Prototols
+protocol InputLocationDelegate: class {
+    func didSaveNewLocation()
+}
+
+
 class InputLocationController: UIViewController {
     
     // MARK: - Properties
     public var coordinate = CLLocationCoordinate2D()
     
     private var database = Database()
+    
+    
+    // delegate
+    weak var delegate: InputLocationDelegate?
     
 
     // MARK: - Outlets
@@ -54,7 +64,8 @@ class InputLocationController: UIViewController {
         
         database.addLocation(location: location.text!, reference: reference.text!, coordinate: coordinate)
         
-        
+        // notify caller
+        delegate?.didSaveNewLocation()
         
         // dismiss view controller
         self.dismiss(animated: true, completion: nil)

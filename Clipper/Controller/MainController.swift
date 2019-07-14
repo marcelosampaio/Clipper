@@ -9,7 +9,8 @@
 import UIKit
 import MapKit
 
-class MainController: UIViewController, CLLocationManagerDelegate, MKMapViewDelegate {
+class MainController: UIViewController, CLLocationManagerDelegate, MKMapViewDelegate, InputLocationDelegate {
+
     
     // MARK: - Propertires
     private var database = Database()
@@ -171,7 +172,7 @@ class MainController: UIViewController, CLLocationManagerDelegate, MKMapViewDele
         
     }
     
-    // MARK: - UI Acitions
+    // MARK: - UI Actions
     
     @IBAction func prepareNewLocation(_ sender: Any) {
         print("🔸 prepare new location on map")
@@ -182,8 +183,17 @@ class MainController: UIViewController, CLLocationManagerDelegate, MKMapViewDele
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "showInput" {
             let controller = segue.destination as! InputLocationController
+            controller.delegate = self
             controller.coordinate = coordinate
         }
     }
+    
+    // MARK: - Input Location Delegate
+    func didSaveNewLocation() {
+        // get map locations
+        getLocations()
+    }
+    
+    
     
 }
