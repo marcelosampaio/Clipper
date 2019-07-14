@@ -105,67 +105,6 @@ class Database : NSObject {
 
         return resultArray
     }
-//
-//    
-//    
-//    public func getCities(country: String) -> Array<LocationRow> {
-//        
-//        // open Database
-//        openDB()
-//        
-//        // query execution
-//        let sql = getSQL(action: "getCitiesOfCountry", param: country)
-//        print("*** SQL QUERY: \(sql)")
-//        
-//        
-//        // set up result array
-//        var resultArray = [LocationRow]()
-//        
-//        if sqlite3_prepare_v2(db, sql, -1, &statement, nil) != SQLITE_OK {
-//            let errmsg = String(cString: sqlite3_errmsg(db)!)
-//            print("🆘 error preparing select getLocations: \(errmsg) 🆘")
-//        }
-//        
-//        while sqlite3_step(statement) == SQLITE_ROW {
-//            // database fields
-//            var cityIdX = String()
-//            var country = String()
-//            var city = String()
-//            var latitude = String()
-//            var longitude = String()
-//            var altitude = String()
-//            
-//            if let cString = sqlite3_column_text(statement, 0) {
-//                cityIdX = String(cString: cString)
-//            }
-//            if let cString = sqlite3_column_text(statement, 1) {
-//                country = String(cString: cString)
-//            }
-//            if let cString = sqlite3_column_text(statement, 2) {
-//                city = String(cString: cString)
-//            }
-//            if let cString = sqlite3_column_text(statement, 3) {
-//                latitude = String(cString: cString)
-//            }
-//            if let cString = sqlite3_column_text(statement, 4) {
-//                longitude = String(cString: cString)
-//            }
-//            if let cString = sqlite3_column_text(statement, 5) {
-//                altitude = String(cString: cString)
-//            }
-//            
-//            resultArray.append(LocationRow.init(cityId: Int(cityIdX)!, country: country, city: city, latitude: latitude, longitude: longitude, altitude: altitude))
-//            
-//        }
-//        
-//        // close Database
-//        closeDB()
-//        
-//        return resultArray
-//        
-//        
-//    }
-    
     
     // MARK: - Database Settings
     public func prepareDatabase() {
