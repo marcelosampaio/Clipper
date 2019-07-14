@@ -13,6 +13,7 @@
 		7F233F7C22D50CE7003F9897 /* location.db in Resources */ = {isa = PBXBuildFile; fileRef = 7F233F7B22D50CE7003F9897 /* location.db */; };
 		7F398DD822A420C50002AFCF /* Database.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F398DD722A420C50002AFCF /* Database.swift */; };
 		7F398DDA22A421A80002AFCF /* Config.plist in Resources */ = {isa = PBXBuildFile; fileRef = 7F398DD922A421A80002AFCF /* Config.plist */; };
+		7F733E1C22DB6EDC00936A34 /* LocationRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F733E1B22DB6EDC00936A34 /* LocationRow.swift */; };
 		7FA67A0D22A41881004236CD /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FA67A0C22A41881004236CD /* AppDelegate.swift */; };
 		7FA67A1222A41881004236CD /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7FA67A1022A41881004236CD /* Main.storyboard */; };
 		7FA67A1422A41883004236CD /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7FA67A1322A41883004236CD /* Assets.xcassets */; };
@@ -27,6 +28,7 @@
 		7F233F7B22D50CE7003F9897 /* location.db */ = {isa = PBXFileReference; lastKnownFileType = file; path = location.db; sourceTree = "<group>"; };
 		7F398DD722A420C50002AFCF /* Database.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Database.swift; sourceTree = "<group>"; };
 		7F398DD922A421A80002AFCF /* Config.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Config.plist; sourceTree = "<group>"; };
+		7F733E1B22DB6EDC00936A34 /* LocationRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationRow.swift; sourceTree = "<group>"; };
 		7FA67A0922A41881004236CD /* Clipper.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Clipper.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		7FA67A0C22A41881004236CD /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		7FA67A1122A41881004236CD /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -64,6 +66,14 @@
 			path = Database;
 			sourceTree = "<group>";
 		};
+		7F733E1A22DB6EC500936A34 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				7F733E1B22DB6EDC00936A34 /* LocationRow.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
 		7FA67A0022A41881004236CD = {
 			isa = PBXGroup;
 			children = (
@@ -83,6 +93,7 @@
 		7FA67A0B22A41881004236CD /* Clipper */ = {
 			isa = PBXGroup;
 			children = (
+				7F733E1A22DB6EC500936A34 /* Model */,
 				7F233F7622D509C1003F9897 /* Extension */,
 				7F398DD622A420B20002AFCF /* Database */,
 				7FA67A1E22A418A5004236CD /* Controller */,
@@ -199,6 +210,7 @@
 				7F233F7522D4D9D5003F9897 /* InputLocationController.swift in Sources */,
 				7F233F7A22D50A65003F9897 /* String+Utils.swift in Sources */,
 				7F233F7822D509D7003F9897 /* UIView+Utils.swift in Sources */,
+				7F733E1C22DB6EDC00936A34 /* LocationRow.swift in Sources */,
 				7FA67A2022A418C7004236CD /* MainController.swift in Sources */,
 				7FA67A0D22A41881004236CD /* AppDelegate.swift in Sources */,
 			);

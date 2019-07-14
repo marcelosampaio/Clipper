@@ -16,6 +16,7 @@ class MainController: UIViewController, CLLocationManagerDelegate, MKMapViewDele
     private let regionRadius: CLLocationDistance = 1000
     private let locationManager = CLLocationManager()
     private var coordinate = CLLocationCoordinate2D()
+    private var locations = [LocationRow]()
     
     
     // MARK: - Outlets
@@ -35,6 +36,13 @@ class MainController: UIViewController, CLLocationManagerDelegate, MKMapViewDele
 
     }
 
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(true)
+        // get map locations
+        getLocations()
+        
+    }
+    
     
     // MARK: - Map Helpers
     private func initialProcedures() {
@@ -50,6 +58,12 @@ class MainController: UIViewController, CLLocationManagerDelegate, MKMapViewDele
             locationManager.startUpdatingLocation()
         }
     }
+    
+    private func getLocations() {
+        locations = database.getLocations()
+        print("......")
+    }
+    
 
     private func centerMapOnLocation(location: CLLocation) {
         let coordinateRegion = MKCoordinateRegion(center: location.coordinate,

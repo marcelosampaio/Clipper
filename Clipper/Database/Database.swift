@@ -37,91 +37,75 @@ class Database : NSObject {
         self.closeDB()
         
     }
-//    public func getCountries() -> Array<Any> {
+
+    public func getLocations() -> [LocationRow] {
+
+        // open Database
+        openDB()
+
+        // query execution
+        let sql = Database.getSql("getLocations")
+        
+        print("*** SQL QUERY: \(sql)")
+
+        // set up result array
+        var resultArray = [LocationRow]()
+
+        if sqlite3_prepare_v2(db, sql, -1, &statement, nil) != SQLITE_OK {
+            let errmsg = String(cString: sqlite3_errmsg(db)!)
+            print("🆘 error preparing select getLocations: \(errmsg) 🆘")
+        }
+
+        while sqlite3_step(statement) == SQLITE_ROW {
+            // database fields
+            var locationId = String()
+            var location = String()
+            var reference = String()
+            var latitude = String()
+            var longitude = String()
+            
+
+            if let cString = sqlite3_column_text(statement, 0) {
+                locationId = String(cString: cString)
+            }
+            if let cString = sqlite3_column_text(statement, 1) {
+                location = String(cString: cString)
+            }
+            if let cString = sqlite3_column_text(statement, 2) {
+                reference = String(cString: cString)
+            }
+            if let cString = sqlite3_column_text(statement, 3) {
+                latitude = String(cString: cString)
+            }
+            if let cString = sqlite3_column_text(statement, 4) {
+                longitude = String(cString: cString)
+            }
+
+            var id = Int()
+            var lat = Double()
+            var lon = Double()
+            
+            if let temp = Int(locationId) {
+                id = temp
+            }
+            if let temp = Double(latitude) {
+                lat = temp
+            }
+            if let temp = Double(longitude) {
+                lon = temp
+            }
+            
+            resultArray.append(LocationRow(locationId: id, location: location, reference: reference, latitude: lat, longitude: lon))
+            
+        }
+
+
+        // close Database
+        closeDB()
+
+        return resultArray
+    }
 //
-//        // open Database
-//        openDB()
-//
-//        // query execution
-//
-//        let sql = getSQL(action: "getCountries", param: String())
-//        print("*** SQL QUERY: \(sql)")
-//        // set up result array
-//        var resultArray = [String]()
-//
-//        if sqlite3_prepare_v2(db, sql, -1, &statement, nil) != SQLITE_OK {
-//            let errmsg = String(cString: sqlite3_errmsg(db)!)
-//            print("🆘 error preparing select getCountries: \(errmsg) 🆘")
-//        }
-//
-//        while sqlite3_step(statement) == SQLITE_ROW {
-//            // database fields
-//            var country = String()
-//            if let cString = sqlite3_column_text(statement, 0) {
-//                country = String(cString: cString)
-//            }
-//            resultArray.append(country)
-//        }
-//        closeDB()
-//        return resultArray
-//    }
-//
-//
-//    public func getLocations() -> Array<Any> {
-//
-//        // open Database
-//        openDB()
-//
-//        // query execution
-//        let sql = getSQL(action: "getLocations", param: String())
-//        print("*** SQL QUERY: \(sql)")
-//
-//        // set up result array
-//        var resultArray = [LocationRow]()
-//
-//        if sqlite3_prepare_v2(db, sql, -1, &statement, nil) != SQLITE_OK {
-//            let errmsg = String(cString: sqlite3_errmsg(db)!)
-//            print("🆘 error preparing select getLocations: \(errmsg) 🆘")
-//        }
-//
-//        while sqlite3_step(statement) == SQLITE_ROW {
-//            // database fields
-//            var cityIdX = String()
-//            var country = String()
-//            var city = String()
-//            var latitude = String()
-//            var longitude = String()
-//            var altitude = String()
-//
-//            if let cString = sqlite3_column_text(statement, 0) {
-//                cityIdX = String(cString: cString)
-//            }
-//            if let cString = sqlite3_column_text(statement, 1) {
-//                country = String(cString: cString)
-//            }
-//            if let cString = sqlite3_column_text(statement, 2) {
-//                city = String(cString: cString)
-//            }
-//            if let cString = sqlite3_column_text(statement, 3) {
-//                latitude = String(cString: cString)
-//            }
-//            if let cString = sqlite3_column_text(statement, 4) {
-//                longitude = String(cString: cString)
-//            }
-//            if let cString = sqlite3_column_text(statement, 5) {
-//                altitude = String(cString: cString)
-//            }
-//
-//            resultArray.append(LocationRow.init(cityId: Int(cityIdX)!, country: country, city: city, latitude: latitude, longitude: longitude, altitude: altitude))
-//        }
-//
-//
-//        // close Database
-//        closeDB()
-//
-//        return resultArray
-//    }
-//    
 //    
 //    
 //    public func getCities(country: String) -> Array<LocationRow> {

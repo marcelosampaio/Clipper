@@ -4,5 +4,7 @@
 <dict>
 	<key>insertLocation</key>
 	<string>insert into location (location, latitude, longitude, reference) values (&apos;[LOCATION]&apos;, [LATITUDE], [LONGITUDE], &apos;[REFERENCE]&apos;)</string>
+	<key>getLocations</key>
+	<string>select id, location, reference, latitude, longitude from location</string>
 </dict>
 </plist>
