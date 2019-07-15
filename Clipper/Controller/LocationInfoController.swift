@@ -48,7 +48,7 @@ class LocationInfoController: UITableViewController, UIPickerViewDelegate, UIPic
     // MARK: - Info Helper
     private func loadMessage() {
         var message = String()
-        message = "Boa tarde! Estou em "
+        message = "\(timeGreetings()) Estou em "
         if let location = annotationView.annotation?.title! {
             message.append(location)
         }
@@ -70,6 +70,25 @@ class LocationInfoController: UITableViewController, UIPickerViewDelegate, UIPic
         
     }
 
+    private func timeGreetings() -> String {
+        let date = Date()
+        let calendar = Calendar.current
+        let hour = calendar.component(.hour, from: date)
+
+        print("⏰ hour: \(hour)")
+        var greetings = String()
+        if hour >= 0 && hour <= 11 {
+            greetings = "Bom dia."
+        }else if hour >= 12 && hour <= 17 {
+            greetings = "Bom tarde."
+        }else{
+            greetings = "Boa noite."
+        }
+        
+        return greetings
+    }
+    
+    
     private func loadPants() {
         pants.append("Jeans")
         pants.append("Short")
@@ -89,18 +108,18 @@ class LocationInfoController: UITableViewController, UIPickerViewDelegate, UIPic
         tableView.reloadData()
     }
     private func loadShirts() {
-        shirts.append("Camiseta")
-        shirts.append("Camiseta azul")
-        shirts.append("Camiseta cinza")
-        shirts.append("Camiseta vinho")
-        shirts.append("Camiseta preta")
-        shirts.append("Camiseta verde")
-        shirts.append("Camiseta amarela")
-        shirts.append("Camiseta branca")
-        shirts.append("Casaco")
-        shirts.append("Casaco preto")
-        shirts.append("Casaco cinza")
-        shirts.append("Casaco branco")
+        shirts.append("camiseta")
+        shirts.append("camiseta azul")
+        shirts.append("camiseta cinza")
+        shirts.append("camiseta vinho")
+        shirts.append("camiseta preta")
+        shirts.append("camiseta verde")
+        shirts.append("camiseta amarela")
+        shirts.append("camiseta branca")
+        shirts.append("casaco")
+        shirts.append("casaco preto")
+        shirts.append("casaco cinza")
+        shirts.append("casaco branco")
         
         shirtsPicker.delegate = self
         shirtsPicker.dataSource = self
