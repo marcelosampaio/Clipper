@@ -91,33 +91,6 @@ class MainController: UIViewController, CLLocationManagerDelegate, MKMapViewDele
         mapView.setRegion(coordinateRegion, animated: true)
     }
     
-
-    // MARK: - Location Manager Delegate
-    func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
-        guard let locValue: CLLocationCoordinate2D = manager.location?.coordinate else { return }
-        
-        // stop updating user's location
-        locationManager.stopUpdatingLocation()
-        
-        print("⭐️ locations = \(locValue.latitude) \(locValue.longitude)")
-        
-        // init and center map
-        let initialLocation = CLLocation(latitude: locValue.latitude, longitude: locValue.longitude)
-        centerMapOnLocation(location: initialLocation)
-        
-    }
-    
-    // MARK: - MKMapViewDelegate Delegate
-    func mapView(_ mapView: MKMapView, regionDidChangeAnimated animated: Bool) {
-        coordinate = mapView.centerCoordinate
-        print("⭐️ center latitude: \(coordinate.latitude)  longitude: \(coordinate.longitude)")
-        
-        getGeoCode(coordinate)
-        
-    }
-    
-    
-    
     private func getGeoCode(_ coordinate: CLLocationCoordinate2D) {
         let geocoder = CLGeocoder()
         let location : CLLocation = CLLocation(latitude: coordinate.latitude, longitude: coordinate.longitude)
@@ -135,7 +108,7 @@ class MainController: UIViewController, CLLocationManagerDelegate, MKMapViewDele
                     print("📍  country : \(String(describing: placemark.country))")
                     print("📍  timeZone : \(String(describing: placemark.timeZone))")
                     print("📍 ----------------------------------------------------------------------")
-                
+                    
                     var address = String()
                     var separator = String()
                     if let temp = placemark.locality {
@@ -171,6 +144,53 @@ class MainController: UIViewController, CLLocationManagerDelegate, MKMapViewDele
         }
         
     }
+
+    // MARK: - Location Manager Delegate
+    func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
+        guard let locValue: CLLocationCoordinate2D = manager.location?.coordinate else { return }
+        
+        // stop updating user's location
+        locationManager.stopUpdatingLocation()
+        
+        print("⭐️ locations = \(locValue.latitude) \(locValue.longitude)")
+        
+        // init and center map
+        let initialLocation = CLLocation(latitude: locValue.latitude, longitude: locValue.longitude)
+        centerMapOnLocation(location: initialLocation)
+        
+    }
+    
+    // MARK: - MKMapViewDelegate Delegate
+    func mapView(_ mapView: MKMapView, regionDidChangeAnimated animated: Bool) {
+        coordinate = mapView.centerCoordinate
+        print("⭐️ center latitude: \(coordinate.latitude)  longitude: \(coordinate.longitude)")
+        getGeoCode(coordinate)
+    }
+    
+    func mapView(_ mapView: MKMapView, viewFor annotation: MKAnnotation) -> MKAnnotationView?
+    {
+        if !(annotation is MKPointAnnotation) {
+            return nil
+        }
+        
+        let annotationIdentifier = "AnnotationIdentifier"
+        var annotationView = mapView.dequeueReusableAnnotationView(withIdentifier: annotationIdentifier)
+        
+        if annotationView == nil {
+            annotationView = MKAnnotationView(annotation: annotation, reuseIdentifier: annotationIdentifier)
+            annotationView!.canShowCallout = true
+        }
+        else {
+            annotationView!.annotation = annotation
+        }
+        
+        let pinImage = UIImage(named: "mira")
+        annotationView!.image = pinImage
+        
+        return annotationView
+    }
+    
+
     
     // MARK: - UI Actions
     
