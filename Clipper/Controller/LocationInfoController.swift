@@ -19,11 +19,16 @@ class LocationInfoController: UITableViewController, UIPickerViewDelegate, UIPic
     private var pants = [String]()
     private var pant = String()
     
+    private var shirts = [String]()
+    private var shirt = String()
+    
+    
 
     // MARK: - Outlets
     
     @IBOutlet weak var greetingsLabel: UILabel!
     @IBOutlet weak var pantsPicker: UIPickerView!
+    @IBOutlet weak var shirtsPicker: UIPickerView!
     
     
     
@@ -31,6 +36,7 @@ class LocationInfoController: UITableViewController, UIPickerViewDelegate, UIPic
     override func viewDidLoad() {
         super.viewDidLoad()
         loadPants()
+        loadShirts()
         loadMessage()
         
     }
@@ -53,6 +59,8 @@ class LocationInfoController: UITableViewController, UIPickerViewDelegate, UIPic
         
         // pants
         message.append(pant)
+        message.append(", ")
+        message.append(shirt)
         
         greetingsLabel.text = message
         
@@ -73,7 +81,25 @@ class LocationInfoController: UITableViewController, UIPickerViewDelegate, UIPic
         
         tableView.reloadData()
     }
-
+    private func loadShirts() {
+        shirts.append("Camiseta")
+        shirts.append("Camiseta azul")
+        shirts.append("Camiseta cinza")
+        shirts.append("Camiseta vinho")
+        shirts.append("Camiseta preta")
+        shirts.append("Camiseta verde")
+        shirts.append("Camiseta amarela")
+        shirts.append("Camiseta branca")
+        
+        shirtsPicker.delegate = self
+        shirtsPicker.dataSource = self
+        
+        shirt = shirts.first!
+        
+        tableView.reloadData()
+    }
+    
+    
     // MARK: - UIPickerView Delegate
     func numberOfComponents(in pickerView: UIPickerView) -> Int {
         return 1
@@ -82,17 +108,26 @@ class LocationInfoController: UITableViewController, UIPickerViewDelegate, UIPic
     func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
         if pickerView.tag == 100 {
             return pants.count
+        }else if pickerView.tag == 101 {
+            return shirts.count
         }
         return 0
     }
     func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
         if pickerView.tag == 100 {
             return pants[row]
+        }else if pickerView.tag == 101 {
+            return shirts[row]
         }
         return ""
     }
     func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
-        pant = pants[row] + ", "
+        if pickerView.tag == 100 {
+            pant = pants[row]
+        }else if pickerView.tag == 101 {
+            shirt = shirts[row] + "."
+        }
+        
         
         loadMessage()
         tableView.reloadData()

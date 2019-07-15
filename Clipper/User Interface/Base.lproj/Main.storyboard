@@ -138,6 +138,26 @@
                                         </tableViewCellContentView>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                     </tableViewCell>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" rowHeight="105" id="LTJ-so-ZBb" userLabel="Shirt Cell">
+                                        <rect key="frame" x="0.0" y="240" width="414" height="105"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="LTJ-so-ZBb" id="AYc-gs-FWT">
+                                            <rect key="frame" x="0.0" y="0.0" width="414" height="105"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <pickerView tag="101" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="S9i-vg-n4J" userLabel="Shirt Picker">
+                                                    <rect key="frame" x="20" y="11" width="374" height="83"/>
+                                                </pickerView>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="S9i-vg-n4J" firstAttribute="trailing" secondItem="AYc-gs-FWT" secondAttribute="trailingMargin" id="GiL-vb-e9b"/>
+                                                <constraint firstItem="S9i-vg-n4J" firstAttribute="top" secondItem="AYc-gs-FWT" secondAttribute="topMargin" id="LcO-8v-Rre"/>
+                                                <constraint firstItem="S9i-vg-n4J" firstAttribute="bottom" secondItem="AYc-gs-FWT" secondAttribute="bottomMargin" id="Okm-Wv-zVb"/>
+                                                <constraint firstItem="S9i-vg-n4J" firstAttribute="leading" secondItem="AYc-gs-FWT" secondAttribute="leadingMargin" id="tSt-kA-spb"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    </tableViewCell>
                                 </cells>
                             </tableViewSection>
                         </sections>
@@ -149,6 +169,7 @@
                     <connections>
                         <outlet property="greetingsLabel" destination="0hX-VZ-K3z" id="foI-bn-daH"/>
                         <outlet property="pantsPicker" destination="rzN-qU-UQw" id="3k0-mI-bts"/>
+                        <outlet property="shirtsPicker" destination="S9i-vg-n4J" id="i2c-Ce-kwf"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="VuX-O7-XmF" userLabel="First Responder" sceneMemberID="firstResponder"/>
