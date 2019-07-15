@@ -19,6 +19,7 @@ class MainController: UIViewController, CLLocationManagerDelegate, MKMapViewDele
     private var coordinate = CLLocationCoordinate2D()
     private var locations = [LocationRow]()
     private var annotations = [MKPointAnnotation]()
+    private var selectedAnnotationView = MKAnnotationView()
     
     
     // MARK: - Outlets
@@ -106,6 +107,7 @@ class MainController: UIViewController, CLLocationManagerDelegate, MKMapViewDele
             let myAnnotation: MKPointAnnotation = MKPointAnnotation()
             myAnnotation.coordinate = CLLocationCoordinate2DMake(CLLocationDegrees(location.latitude), CLLocationDegrees(location.longitude));
             myAnnotation.title = location.location
+            myAnnotation.subtitle = location.reference
             
             mapView.addAnnotation(myAnnotation)
             annotations.append(myAnnotation)
@@ -228,6 +230,8 @@ class MainController: UIViewController, CLLocationManagerDelegate, MKMapViewDele
     
     func mapView(_ mapView: MKMapView, annotationView view: MKAnnotationView, calloutAccessoryControlTapped control: UIControl) {
         print("🤞 Callout has been tapped -> \(view.annotation!.title! ?? "")")
+        selectedAnnotationView = view
+        performSegue(withIdentifier: "showLocationInfo", sender: self)
     }
     
     // MARK: - UI Actions
@@ -243,6 +247,9 @@ class MainController: UIViewController, CLLocationManagerDelegate, MKMapViewDele
             let controller = segue.destination as! InputLocationController
             controller.delegate = self
             controller.coordinate = coordinate
+        }else if segue.identifier == "showLocationInfo" {
+            let controller = segue.destination as! LocationInfoController
+            controller.annotationView = selectedAnnotationView
         }
     }
     
@@ -251,6 +258,7 @@ class MainController: UIViewController, CLLocationManagerDelegate, MKMapViewDele
         // get map locations
         getLocations()
     }
+    
     
     
     
