@@ -179,6 +179,8 @@ class MainController: UIViewController, CLLocationManagerDelegate, MKMapViewDele
         if annotationView == nil {
             annotationView = MKAnnotationView(annotation: annotation, reuseIdentifier: annotationIdentifier)
             annotationView!.canShowCallout = true
+            annotationView?.rightCalloutAccessoryView = UIButton(type: .detailDisclosure)
+            
         }
         else {
             annotationView!.annotation = annotation
@@ -190,11 +192,13 @@ class MainController: UIViewController, CLLocationManagerDelegate, MKMapViewDele
         return annotationView
     }
     
-
+    func mapView(_ mapView: MKMapView, annotationView view: MKAnnotationView, calloutAccessoryControlTapped control: UIControl) {
+        print("🤞 Callout has been tapped -> \(view.annotation!.title! ?? "")")
+    }
     
     // MARK: - UI Actions
     
-    @IBAction func prepareNewLocation(_ sender: Any) {
+@IBAction func prepareNewLocation(_ sender: Any) {
         print("🔸 prepare new location on map")
         performSegue(withIdentifier: "showInput", sender: self)
     }
