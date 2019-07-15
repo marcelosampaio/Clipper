@@ -275,9 +275,8 @@
                                         </constraints>
                                     </view>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3yV-cQ-dd0">
-                                        <rect key="frame" x="322" y="210" width="80" height="30"/>
+                                        <rect key="frame" x="357" y="210" width="45" height="30"/>
                                         <constraints>
-                                            <constraint firstAttribute="width" constant="80" id="hB9-CU-PAp"/>
                                             <constraint firstAttribute="height" constant="30" id="uBa-53-9WL"/>
                                         </constraints>
                                         <fontDescription key="fontDescription" type="system" pointSize="16"/>
@@ -312,6 +311,7 @@
                                     <constraint firstItem="TYB-MU-TsK" firstAttribute="top" secondItem="DZY-oe-Pie" secondAttribute="bottom" constant="7" id="m8x-xm-0XK"/>
                                     <constraint firstAttribute="trailing" secondItem="RXx-36-QTo" secondAttribute="trailing" constant="8" id="oPm-hW-IgS"/>
                                     <constraint firstItem="YOI-3r-2E3" firstAttribute="leading" secondItem="0KU-mH-4Aj" secondAttribute="leading" constant="8" id="obu-Tf-aPS"/>
+                                    <constraint firstItem="3yV-cQ-dd0" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="0KU-mH-4Aj" secondAttribute="leading" constant="20" symbolic="YES" id="se0-KU-XMi"/>
                                     <constraint firstItem="DZY-oe-Pie" firstAttribute="top" secondItem="8my-zK-49J" secondAttribute="bottom" id="tsV-Mw-rX2"/>
                                     <constraint firstAttribute="height" constant="258" id="zDY-GY-hrX"/>
                                 </constraints>
