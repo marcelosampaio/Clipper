@@ -10,8 +10,6 @@ import UIKit
 import MapKit
 
 class LocationInfoController: UITableViewController, UIPickerViewDelegate, UIPickerViewDataSource {
-
-    
     
     // MARK: - Properties
     public var annotationView = MKAnnotationView()
@@ -29,16 +27,22 @@ class LocationInfoController: UITableViewController, UIPickerViewDelegate, UIPic
     @IBOutlet weak var greetingsLabel: UILabel!
     @IBOutlet weak var pantsPicker: UIPickerView!
     @IBOutlet weak var shirtsPicker: UIPickerView!
+    @IBOutlet weak var commandButton: UIButton!
     
     
     
     // MARK: - View Life Cycle
     override func viewDidLoad() {
         super.viewDidLoad()
+        commandButton.layer.cornerRadius = 8
+        commandButton.layer.masksToBounds = true
+        commandButton.layer.borderColor = UIColor.darkGray.cgColor
+        commandButton.layer.borderWidth = 1
+        
         loadPants()
         loadShirts()
         loadMessage()
-        
+
     }
     
     // MARK: - Info Helper
@@ -68,10 +72,13 @@ class LocationInfoController: UITableViewController, UIPickerViewDelegate, UIPic
 
     private func loadPants() {
         pants.append("Jeans")
-        pants.append("Calça")
         pants.append("Short")
         pants.append("Short amarelo")
         pants.append("Short azul")
+        pants.append("Calça")
+        pants.append("Calça preta")
+        pants.append("Calça azul")
+        pants.append("Calça cinza")
         
         pantsPicker.delegate = self
         pantsPicker.dataSource = self
@@ -90,6 +97,10 @@ class LocationInfoController: UITableViewController, UIPickerViewDelegate, UIPic
         shirts.append("Camiseta verde")
         shirts.append("Camiseta amarela")
         shirts.append("Camiseta branca")
+        shirts.append("Casaco")
+        shirts.append("Casaco preto")
+        shirts.append("Casaco cinza")
+        shirts.append("Casaco branco")
         
         shirtsPicker.delegate = self
         shirtsPicker.dataSource = self
@@ -132,4 +143,28 @@ class LocationInfoController: UITableViewController, UIPickerViewDelegate, UIPic
         loadMessage()
         tableView.reloadData()
     }
+    
+    
+    // MARK: - UI Actions
+    @IBAction func copyInfoOpenUber(_ sender: Any) {
+        
+        // copy info to clipboard
+        UIPasteboard.general.string = greetingsLabel.text
+        
+        // open uber app
+        if let urlFromStr = URL(string: "uber://") {
+            if UIApplication.shared.canOpenURL(urlFromStr) {
+                if #available(iOS 10.0, *) {
+                    UIApplication.shared.open(urlFromStr, options: [:], completionHandler: nil)
+                } else {
+                    UIApplication.shared.openURL(urlFromStr)
+                }
+            }
+        }
+
+        
+        
+    }
+    
+    
 }

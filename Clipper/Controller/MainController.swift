@@ -33,7 +33,7 @@ class MainController: UIViewController, CLLocationManagerDelegate, MKMapViewDele
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        navigationBarButtons()
+//        navigationBarButtons()
 
 
         // prepare database

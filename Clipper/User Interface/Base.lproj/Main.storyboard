@@ -158,6 +158,31 @@
                                         </tableViewCellContentView>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                     </tableViewCell>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" rowHeight="102" id="Icq-tT-jKm" userLabel="Command Cell">
+                                        <rect key="frame" x="0.0" y="345" width="414" height="102"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="Icq-tT-jKm" id="RtJ-3b-qVB">
+                                            <rect key="frame" x="0.0" y="0.0" width="414" height="102"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="eNE-Ll-oqe">
+                                                    <rect key="frame" x="45" y="24" width="324" height="55"/>
+                                                    <fontDescription key="fontDescription" type="boldSystem" pointSize="20"/>
+                                                    <state key="normal" title="Copiar e abrir o Uber"/>
+                                                    <connections>
+                                                        <action selector="copyInfoOpenUber:" destination="KYG-ie-Zo9" eventType="touchUpInside" id="B1V-wX-fHI"/>
+                                                    </connections>
+                                                </button>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="eNE-Ll-oqe" firstAttribute="leading" secondItem="RtJ-3b-qVB" secondAttribute="leadingMargin" constant="25" id="59A-Rf-5uM"/>
+                                                <constraint firstAttribute="bottomMargin" secondItem="eNE-Ll-oqe" secondAttribute="bottom" constant="12" id="Ri6-LD-bgZ"/>
+                                                <constraint firstAttribute="trailingMargin" secondItem="eNE-Ll-oqe" secondAttribute="trailing" constant="25" id="Xr0-5E-cET"/>
+                                                <constraint firstItem="eNE-Ll-oqe" firstAttribute="top" secondItem="RtJ-3b-qVB" secondAttribute="topMargin" constant="13" id="wXY-4w-MDP"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    </tableViewCell>
                                 </cells>
                             </tableViewSection>
                         </sections>
@@ -167,6 +192,7 @@
                         </connections>
                     </tableView>
                     <connections>
+                        <outlet property="commandButton" destination="eNE-Ll-oqe" id="MDJ-wf-lWR"/>
                         <outlet property="greetingsLabel" destination="0hX-VZ-K3z" id="foI-bn-daH"/>
                         <outlet property="pantsPicker" destination="rzN-qU-UQw" id="3k0-mI-bts"/>
                         <outlet property="shirtsPicker" destination="S9i-vg-n4J" id="i2c-Ce-kwf"/>
