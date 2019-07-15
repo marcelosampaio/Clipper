@@ -25,10 +25,15 @@ class MainController: UIViewController, CLLocationManagerDelegate, MKMapViewDele
     
     @IBOutlet weak var mapView: MKMapView!
     @IBOutlet weak var addressLabel: UILabel!
+    @IBOutlet weak var aimImageView: UIImageView!
+    
     
     // MARK: - View Life Cycle
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        navigationBarButtons()
+
 
         // prepare database
         database.prepareDatabase()
@@ -36,12 +41,40 @@ class MainController: UIViewController, CLLocationManagerDelegate, MKMapViewDele
         // initial procedures
         initialProcedures()
 
+        
     }
 
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(true)
         // get map locations
         getLocations()
+        
+    }
+    
+    // MARK: - UI Appearence
+    private func navigationBarButtons() {
+        ///////// Left
+        //create a new button
+        let button: UIButton = UIButton(type: UIButton.ButtonType.custom)
+        //set image for button
+        button.setImage(UIImage(named: "CurrentLocation"), for: UIControl.State.normal)
+        
+        //add function for button
+        button.addTarget(self, action: #selector(self.barButtonPressed), for: .touchUpInside)
+        
+        //set frame
+        button.frame = CGRect(x: 0, y: 0, width: 20, height: 20)
+        
+        
+        let barButton = UIBarButtonItem(customView: button)
+        //assign button to navigationbar
+        self.navigationItem.leftBarButtonItem = barButton
+        
+    }
+    
+    @objc private func barButtonPressed() {
+        
+        print("🔆 current location button was tapped!")
         
     }
     
@@ -82,6 +115,7 @@ class MainController: UIViewController, CLLocationManagerDelegate, MKMapViewDele
             print("💥 db longitude: \(location.longitude)")
             print("💥 ------------------------------------------ 💥")
         }
+        
     }
     
 
@@ -186,7 +220,7 @@ class MainController: UIViewController, CLLocationManagerDelegate, MKMapViewDele
             annotationView!.annotation = annotation
         }
         
-        let pinImage = UIImage(named: "mira")
+        let pinImage = UIImage(named: "savedLocation")
         annotationView!.image = pinImage
         
         return annotationView

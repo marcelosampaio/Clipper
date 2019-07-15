@@ -67,6 +67,7 @@
                     </navigationItem>
                     <connections>
                         <outlet property="addressLabel" destination="xDO-fH-XS7" id="gyl-tW-vkd"/>
+                        <outlet property="aimImageView" destination="xCv-KC-Emb" id="EVD-Zz-JH4"/>
                         <outlet property="mapView" destination="4St-8W-W8P" id="wVn-R5-AJX"/>
                         <segue destination="Eqp-fv-bfG" kind="presentation" identifier="showInput" modalPresentationStyle="overCurrentContext" id="ww2-fa-w0a"/>
                     </connections>
