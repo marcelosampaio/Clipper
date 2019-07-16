@@ -193,11 +193,9 @@ class LocationInfoController: UITableViewController, UIPickerViewDelegate, UIPic
         
         let okAction = UIAlertAction(title: "Remover Localidade", style: .destructive) { (action) in
             self.database.deleteLocation(location: (self.annotationView.annotation?.title!)!, reference: (self.annotationView.annotation?.subtitle!)!, coordinate: self.annotationView.annotation!.coordinate)
-            
-            self.dismiss(animated: true, completion: nil)
-            
-            
-            
+
+            self.navigationController?.popViewController(animated: true)
+
 
         }
         let cancelAction = UIAlertAction(title: "Cancelar", style: .default, handler: nil)
