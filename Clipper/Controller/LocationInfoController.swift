@@ -185,5 +185,10 @@ class LocationInfoController: UITableViewController, UIPickerViewDelegate, UIPic
         
     }
     
+    @IBAction func removeAnnotation(_ sender: Any) {
+        
+        print("🦞 REMOVE LOCATION")
+    }
+    
     
 }
