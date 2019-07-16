@@ -38,6 +38,26 @@ class Database : NSObject {
         
     }
 
+    public func deleteLocation(location: String, reference: String, coordinate: CLLocationCoordinate2D) {
+        
+        self.openDB()
+        
+        let sql = self.getDeleteLocationStatment(location: location, reference: reference, coordinate: coordinate)
+        
+        print("🤙 sql: \(sql)")
+        
+        if sqlite3_exec(db, sql, nil, nil, nil) != SQLITE_OK {
+            print("🆘 error deleting row from the table 🆘")
+            return
+        }else{
+            print("👉 delete OK")
+        }
+        
+        self.closeDB()
+        
+    }
+    
+    
     public func getLocations() -> [LocationRow] {
 
         // open Database
@@ -202,7 +222,16 @@ class Database : NSObject {
         
         return sql
     }
-    
+    private func getDeleteLocationStatment(location: String, reference: String, coordinate: CLLocationCoordinate2D) -> String {
+        
+        let sqlStatment = Database.getSql("deleteLocation")
+        
+        var sql = sqlStatment.replacingOccurrences(of: "[LOCATION]", with: location)
+        sql = sql.replacingOccurrences(of: "[REFERENCE]", with: reference)
+
+        
+        return sql
+    }
     
     
 }

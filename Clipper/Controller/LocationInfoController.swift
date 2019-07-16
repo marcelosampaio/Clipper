@@ -14,6 +14,8 @@ class LocationInfoController: UITableViewController, UIPickerViewDelegate, UIPic
     // MARK: - Properties
     public var annotationView = MKAnnotationView()
     
+    private var database = Database()
+    
     private var pants = [String]()
     private var pant = String()
     
@@ -187,8 +189,28 @@ class LocationInfoController: UITableViewController, UIPickerViewDelegate, UIPic
     
     @IBAction func removeAnnotation(_ sender: Any) {
         
-        print("🦞 REMOVE LOCATION")
+        let alertController = UIAlertController(title: "Você tem certaza que deseja remover a localidade?", message: nil, preferredStyle: .alert)
+        
+        let okAction = UIAlertAction(title: "Remover Localidade", style: .destructive) { (action) in
+            self.database.deleteLocation(location: (self.annotationView.annotation?.title!)!, reference: (self.annotationView.annotation?.subtitle!)!, coordinate: self.annotationView.annotation!.coordinate)
+            
+            self.dismiss(animated: true, completion: nil)
+            
+            
+            
+
+        }
+        let cancelAction = UIAlertAction(title: "Cancelar", style: .default, handler: nil)
+        
+        alertController.addAction(okAction)
+        alertController.addAction(cancelAction)
+        
+        present(alertController, animated: true) {
+        }
+        
+        
     }
     
     
 }
+
