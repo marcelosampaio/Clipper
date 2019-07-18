@@ -92,7 +92,7 @@ class LocationInfoController: UITableViewController, UIPickerViewDelegate, UIPic
     
     
     private func loadPants() {
-        pants.append("Jeans")
+        pants.append("Calça Jeans")
         pants.append("Short")
         pants.append("Short amarelo")
         pants.append("Short azul")
