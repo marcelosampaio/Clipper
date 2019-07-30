@@ -33,7 +33,7 @@ class MainController: UIViewController, CLLocationManagerDelegate, MKMapViewDele
     override func viewDidLoad() {
         super.viewDidLoad()
         
-//        navigationBarButtons()
+        navigationBarButtons()
 
 
         // prepare database
@@ -58,13 +58,15 @@ class MainController: UIViewController, CLLocationManagerDelegate, MKMapViewDele
         //create a new button
         let button: UIButton = UIButton(type: UIButton.ButtonType.custom)
         //set image for button
-        button.setImage(UIImage(named: "CurrentLocation"), for: UIControl.State.normal)
+        button.setImage(UIImage(named: "currentLocation"), for: UIControl.State.normal)
         
         //add function for button
         button.addTarget(self, action: #selector(self.barButtonPressed), for: .touchUpInside)
         
         //set frame
         button.frame = CGRect(x: 0, y: 0, width: 20, height: 20)
+        button.clipsToBounds = true
+        
         
         
         let barButton = UIBarButtonItem(customView: button)
@@ -76,6 +78,7 @@ class MainController: UIViewController, CLLocationManagerDelegate, MKMapViewDele
     @objc private func barButtonPressed() {
         
         print("🔆 current location button was tapped!")
+        initialProcedures()
         
     }
     
