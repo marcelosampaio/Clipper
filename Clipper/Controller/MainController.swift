@@ -58,7 +58,7 @@ class MainController: UIViewController, CLLocationManagerDelegate, MKMapViewDele
         //create a new button
         let button: UIButton = UIButton(type: UIButton.ButtonType.custom)
         //set image for button
-        button.setImage(UIImage(named: "currentLocation"), for: UIControl.State.normal)
+        button.setImage(UIImage(named: "currentLocation2"), for: UIControl.State.normal)
         
         //add function for button
         button.addTarget(self, action: #selector(self.barButtonPressed), for: .touchUpInside)
