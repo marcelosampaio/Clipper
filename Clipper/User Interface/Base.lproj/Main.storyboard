@@ -37,12 +37,12 @@
                                     <constraint firstItem="xDO-fH-XS7" firstAttribute="top" secondItem="QNf-wt-Tsp" secondAttribute="top" constant="6" id="YOI-Qh-nbL"/>
                                 </constraints>
                             </view>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="miraRed" translatesAutoresizingMaskIntoConstraints="NO" id="xCv-KC-Emb">
+                                <rect key="frame" x="167" y="328" width="80" height="80"/>
+                            </imageView>
                             <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="hybrid" translatesAutoresizingMaskIntoConstraints="NO" id="4St-8W-W8P">
                                 <rect key="frame" x="0.0" y="64" width="414" height="628"/>
                             </mapView>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="miraBoldRed" translatesAutoresizingMaskIntoConstraints="NO" id="xCv-KC-Emb">
-                                <rect key="frame" x="157" y="318" width="100" height="100"/>
-                            </imageView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
@@ -375,7 +375,7 @@
     </scenes>
     <resources>
         <image name="iconClose" width="100" height="100"/>
-        <image name="miraBoldRed" width="100" height="100"/>
+        <image name="miraRed" width="80" height="80"/>
     </resources>
     <color key="tintColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
 </document>
