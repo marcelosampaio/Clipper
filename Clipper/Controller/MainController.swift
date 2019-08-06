@@ -34,6 +34,8 @@ class MainController: UIViewController, CLLocationManagerDelegate, MKMapViewDele
         super.viewDidLoad()
         
         navigationBarButtons()
+        
+        // send aimView to the front
         view.bringSubviewToFront(aimImageView)
 
         // prepare database
