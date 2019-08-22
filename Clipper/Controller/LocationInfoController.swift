@@ -82,7 +82,7 @@ class LocationInfoController: UITableViewController, UIPickerViewDelegate, UIPic
         if hour >= 0 && hour <= 11 {
             greetings = "Bom dia."
         }else if hour >= 12 && hour <= 17 {
-            greetings = "Bom tarde."
+            greetings = "Boa tarde."
         }else{
             greetings = "Boa noite."
         }
