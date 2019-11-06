@@ -18,8 +18,12 @@ class MainController: UIViewController, CLLocationManagerDelegate, MKMapViewDele
     private let locationManager = CLLocationManager()
     private var coordinate = CLLocationCoordinate2D()
     private var locations = [LocationRow]()
+    
     private var annotations = [MKPointAnnotation]()
+    private var rowPointAnnotations = [LocationRowPoint]()
+    
     private var selectedAnnotationView = MKAnnotationView()
+    private var selectedLocationRowPoint = LocationRowPoint()
     
     
     // MARK: - Outlets
@@ -105,6 +109,7 @@ class MainController: UIViewController, CLLocationManagerDelegate, MKMapViewDele
         // Remove all previous annotations
         self.mapView.removeAnnotations(annotations)
         annotations.removeAll()
+        rowPointAnnotations.removeAll()
         
         locations = database.getLocations()
         
@@ -114,9 +119,19 @@ class MainController: UIViewController, CLLocationManagerDelegate, MKMapViewDele
             myAnnotation.title = location.location
             myAnnotation.subtitle = location.reference
             
-            mapView.addAnnotation(myAnnotation)
+            mapView.addAnnotation(myAnnotation)  // ⚠️ ATTENTION HERE!!!!!!!! this is for the map
             annotations.append(myAnnotation)
             
+            // --------------------------------------------------------------------------
+            // 🌟 this is the new class to pass location row to LocationInfoController
+            // --------------------------------------------------------------------------
+            let rowPointAnnotation = LocationRowPoint()
+            rowPointAnnotation.locationAnnotation = myAnnotation
+            rowPointAnnotation.locationRow = location
+            rowPointAnnotations.append(rowPointAnnotation)
+            // ---------------------------------------------------------------------------
+            
+            print("💥 db location ID: \(location.locationId)")
             print("💥 db location: \(location.location)")
             print("💥 db latitude: \(location.latitude)")
             print("💥 db longitude: \(location.longitude)")
@@ -236,12 +251,21 @@ class MainController: UIViewController, CLLocationManagerDelegate, MKMapViewDele
     func mapView(_ mapView: MKMapView, annotationView view: MKAnnotationView, calloutAccessoryControlTapped control: UIControl) {
         print("🤞 Callout has been tapped -> \(view.annotation!.title! ?? "")")
         selectedAnnotationView = view
+        
+        for rowPoint in rowPointAnnotations {
+            if view.annotation!.title! == rowPoint.locationRow.location && view.annotation!.subtitle! == rowPoint.locationRow.reference {
+                print("🌟 rowPoint: \(rowPoint)")
+                selectedLocationRowPoint = rowPoint
+            }
+            
+        }
+        
+        
         performSegue(withIdentifier: "showLocationInfo", sender: self)
     }
     
     // MARK: - UI Actions
-    
-@IBAction func prepareNewLocation(_ sender: Any) {
+    @IBAction func prepareNewLocation(_ sender: Any) {
         print("🔸 prepare new location on map")
         performSegue(withIdentifier: "showInput", sender: self)
     }
@@ -255,6 +279,7 @@ class MainController: UIViewController, CLLocationManagerDelegate, MKMapViewDele
         }else if segue.identifier == "showLocationInfo" {
             let controller = segue.destination as! LocationInfoController
             controller.annotationView = selectedAnnotationView
+            controller.locationRowPoint = selectedLocationRowPoint
         }
     }
     

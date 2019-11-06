@@ -13,6 +13,7 @@ class LocationInfoController: UITableViewController, UIPickerViewDelegate, UIPic
     
     // MARK: - Properties
     public var annotationView = MKAnnotationView()
+    public var locationRowPoint = LocationRowPoint()  // contains the database row Id of the location
     
     private var database = Database()
     
@@ -36,10 +37,11 @@ class LocationInfoController: UITableViewController, UIPickerViewDelegate, UIPic
     // MARK: - View Life Cycle
     override func viewDidLoad() {
         super.viewDidLoad()
-        commandButton.layer.cornerRadius = 8
-        commandButton.layer.masksToBounds = true
-        commandButton.layer.borderColor = UIColor.darkGray.cgColor
-        commandButton.layer.borderWidth = 1
+        
+        print("🍔 location row point: \(locationRowPoint)")
+        print("...")
+        
+        configUI()
         
         loadPants()
         loadShirts()
@@ -47,19 +49,26 @@ class LocationInfoController: UITableViewController, UIPickerViewDelegate, UIPic
 
     }
     
+    // MARK: - UI Config
+    private func configUI() {
+        commandButton.layer.cornerRadius = 8
+        commandButton.layer.masksToBounds = true
+        commandButton.layer.borderColor = UIColor.darkGray.cgColor
+        commandButton.layer.borderWidth = 1
+    }
+    
     // MARK: - Info Helper
     private func loadMessage() {
         var message = String()
         message = "\(timeGreetings()) Estou em "
-        if let location = annotationView.annotation?.title! {
+        if let location = locationRowPoint.locationAnnotation.title { // annotationView.annotation?.title! {
             message.append(location)
         }
-        if let reference = annotationView.annotation?.subtitle! {
+        if let reference = locationRowPoint.locationAnnotation.subtitle { // annotationView.annotation?.subtitle! {
             if !reference.isEmpty {
                 message.append(", ")
                 message.append(reference)
             }
-            
         }
         message.append(". ")
         
