@@ -12,7 +12,7 @@ import MapKit
 class LocationInfoController: UITableViewController, UIPickerViewDelegate, UIPickerViewDataSource {
     
     // MARK: - Properties
-    public var annotationView = MKAnnotationView()
+//    public var annotationView = MKAnnotationView()
     public var locationRowPoint = LocationRowPoint()  // contains the database row Id of the location
     
     private var database = Database()
@@ -201,7 +201,7 @@ class LocationInfoController: UITableViewController, UIPickerViewDelegate, UIPic
         let alertController = UIAlertController(title: "Você tem certaza que deseja remover a localidade?", message: nil, preferredStyle: .alert)
         
         let okAction = UIAlertAction(title: "Remover Localidade", style: .destructive) { (action) in
-            self.database.deleteLocation(location: (self.annotationView.annotation?.title!)!, reference: (self.annotationView.annotation?.subtitle!)!, coordinate: self.annotationView.annotation!.coordinate)
+            self.database.deleteLocation(location: self.locationRowPoint.locationAnnotation.title!, reference: self.locationRowPoint.locationAnnotation.subtitle!, coordinate: self.locationRowPoint.locationAnnotation.coordinate)
 
             self.navigationController?.popViewController(animated: true)
 

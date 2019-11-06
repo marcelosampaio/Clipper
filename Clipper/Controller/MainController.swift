@@ -22,7 +22,7 @@ class MainController: UIViewController, CLLocationManagerDelegate, MKMapViewDele
     private var annotations = [MKPointAnnotation]()
     private var rowPointAnnotations = [LocationRowPoint]()
     
-    private var selectedAnnotationView = MKAnnotationView()
+//    private var selectedAnnotationView = MKAnnotationView()
     private var selectedLocationRowPoint = LocationRowPoint()
     
     
@@ -250,7 +250,7 @@ class MainController: UIViewController, CLLocationManagerDelegate, MKMapViewDele
     
     func mapView(_ mapView: MKMapView, annotationView view: MKAnnotationView, calloutAccessoryControlTapped control: UIControl) {
         print("🤞 Callout has been tapped -> \(view.annotation!.title! ?? "")")
-        selectedAnnotationView = view
+//        selectedAnnotationView = view
         
         for rowPoint in rowPointAnnotations {
             if view.annotation!.title! == rowPoint.locationRow.location && view.annotation!.subtitle! == rowPoint.locationRow.reference {
@@ -278,7 +278,7 @@ class MainController: UIViewController, CLLocationManagerDelegate, MKMapViewDele
             controller.coordinate = coordinate
         }else if segue.identifier == "showLocationInfo" {
             let controller = segue.destination as! LocationInfoController
-            controller.annotationView = selectedAnnotationView
+//            controller.annotationView = selectedAnnotationView
             controller.locationRowPoint = selectedLocationRowPoint
         }
     }
