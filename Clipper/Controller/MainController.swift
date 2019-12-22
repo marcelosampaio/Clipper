@@ -265,9 +265,9 @@ class MainController: UIViewController, CLLocationManagerDelegate, MKMapViewDele
     }
     
     // MARK: - UI Actions
-    @IBAction func prepareNewLocation(_ sender: Any) {
-        print("🔸 prepare new location on map")
-        performSegue(withIdentifier: "showInput", sender: self)
+    @IBAction func prepareActions(_ sender: Any) {
+        actionSheetHelper()
+//        performSegue(withIdentifier: "showInput", sender: self)
     }
     
     // MARK: - Navigation
@@ -289,7 +289,40 @@ class MainController: UIViewController, CLLocationManagerDelegate, MKMapViewDele
         getLocations()
     }
     
-    
+        // MARK: - Acion Sheet Helper
+        private func actionSheetHelper() {
+
+            let alertController = UIAlertController(title: nil , message: nil, preferredStyle: .actionSheet)
+            //        let okAction = UIAlertAction(title: "OK", style: .default, handler: nil)
+            let newLocationAction = UIAlertAction(title: "Nova Localidade", style: .default) { (newLocation) in
+                // completion
+                self.performSegue(withIdentifier: "showInput", sender: self)
+                
+            }
+            alertController.addAction(newLocationAction)
+            
+            let infoAction = UIAlertAction(title: "Ver Localidades", style: .default) { (info) in
+                // completion
+                
+            }
+            alertController.addAction(infoAction)
+            
+            
+            let cancelAction = UIAlertAction(title: "Cancelar", style: .cancel) { (nothingAction) in
+                // completion
+            }
+            alertController.addAction(cancelAction)
+            //
+
+            
+            if let popoverPresentationController = alertController.popoverPresentationController {
+                popoverPresentationController.sourceView = self.view
+                popoverPresentationController.sourceRect = self.view.bounds
+            }
+            self.present(alertController, animated: true, completion: nil)
+            
+            
+        }
     
     
 }
