@@ -90,19 +90,44 @@
                                     <navigationItem title="Localidades" id="Okk-A5-JsF"/>
                                 </items>
                             </navigationBar>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="H7d-em-ugk">
+                                <rect key="frame" x="0.0" y="56" width="414" height="633"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="Cell" id="eZ2-6c-4vC">
+                                        <rect key="frame" x="0.0" y="28" width="414" height="43.666667938232422"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="eZ2-6c-4vC" id="9oS-uD-AuF">
+                                            <rect key="frame" x="0.0" y="0.0" width="414" height="43.666667938232422"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                </prototypes>
+                                <connections>
+                                    <outlet property="dataSource" destination="rdC-PO-uh5" id="XMP-de-kfT"/>
+                                    <outlet property="delegate" destination="rdC-PO-uh5" id="lFB-ee-PxD"/>
+                                </connections>
+                            </tableView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="ccH-cp-H1f" firstAttribute="top" secondItem="fnQ-lu-ryI" secondAttribute="top" id="8nG-17-HN1"/>
+                            <constraint firstItem="H7d-em-ugk" firstAttribute="leading" secondItem="fnQ-lu-ryI" secondAttribute="leading" id="AXv-3R-Ngg"/>
                             <constraint firstItem="ccH-cp-H1f" firstAttribute="trailing" secondItem="fnQ-lu-ryI" secondAttribute="trailing" id="JkK-6v-LZw"/>
+                            <constraint firstItem="H7d-em-ugk" firstAttribute="trailing" secondItem="fnQ-lu-ryI" secondAttribute="trailing" id="W1f-zZ-fQ8"/>
+                            <constraint firstItem="H7d-em-ugk" firstAttribute="top" secondItem="ccH-cp-H1f" secondAttribute="bottom" symbolic="YES" id="h1P-8s-Rhf"/>
                             <constraint firstItem="ccH-cp-H1f" firstAttribute="leading" secondItem="fnQ-lu-ryI" secondAttribute="leading" id="iYT-BR-t7b"/>
+                            <constraint firstItem="fnQ-lu-ryI" firstAttribute="bottom" secondItem="H7d-em-ugk" secondAttribute="bottom" constant="27" id="yS9-z3-0lT"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="fnQ-lu-ryI"/>
                     </view>
+                    <connections>
+                        <outlet property="tableView" destination="H7d-em-ugk" id="h7F-c8-bbE"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="lya-fp-Db6" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1975" y="-427"/>
+            <point key="canvasLocation" x="1973.913043478261" y="-427.17391304347831"/>
         </scene>
         <!--Location Info Controller-->
         <scene sceneID="5UC-ht-QNi">
@@ -256,7 +281,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="716"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="0KU-mH-4Aj">
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="0KU-mH-4Aj" userLabel="Frame View">
                                 <rect key="frame" x="0.0" y="0.0" width="414" height="258"/>
                                 <subviews>
                                     <button hidden="YES" opaque="NO" contentMode="scaleAspectFit" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ghg-8r-q3x">
@@ -377,6 +402,7 @@
                         <viewLayoutGuide key="safeArea" id="uqO-K9-p1M"/>
                     </view>
                     <connections>
+                        <outlet property="frameView" destination="0KU-mH-4Aj" id="MAh-Ix-xhN"/>
                         <outlet property="location" destination="8my-zK-49J" id="Rmf-SI-ZKs"/>
                         <outlet property="reference" destination="YOI-3r-2E3" id="lAa-QA-QLO"/>
                         <outlet property="saveButton" destination="3yV-cQ-dd0" id="uu1-Zi-lvH"/>

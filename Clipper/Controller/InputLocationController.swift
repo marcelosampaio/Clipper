@@ -28,6 +28,7 @@ class InputLocationController: UIViewController {
     
 
     // MARK: - Outlets
+    @IBOutlet weak var frameView: UIView!
     @IBOutlet weak var saveButton: UIButton!
     @IBOutlet weak var location: UITextField!
     @IBOutlet weak var reference: UITextField!
@@ -38,8 +39,8 @@ class InputLocationController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-//        saveButton.layer.cornerRadius = 8
-//        saveButton.layer.masksToBounds = true
+        frameView.layer.cornerRadius = 8
+        frameView.layer.masksToBounds = true
 //        saveButton.layer.borderColor = UIColor.lightGray.cgColor
 //        saveButton.layer.borderWidth = 0.45
 
