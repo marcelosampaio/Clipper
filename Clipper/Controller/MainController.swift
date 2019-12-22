@@ -303,7 +303,7 @@ class MainController: UIViewController, CLLocationManagerDelegate, MKMapViewDele
             
             let infoAction = UIAlertAction(title: "Ver Localidades", style: .default) { (info) in
                 // completion
-                
+                self.performSegue(withIdentifier: "showLocations", sender: self)
             }
             alertController.addAction(infoAction)
             
