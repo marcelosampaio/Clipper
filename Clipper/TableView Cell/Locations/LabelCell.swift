@@ -11,7 +11,8 @@ import UIKit
 class LabelCell: UITableViewCell {
     
     // MARK: - Outlets
-
+    @IBOutlet weak var titleLabel: UILabel!
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code

@@ -11,6 +11,7 @@ import UIKit
 class TextCell: UITableViewCell {
 
     // MARK: - Outlets
+    @IBOutlet weak var titleTextView: UITextView!
     
     
     override func awakeFromNib() {
