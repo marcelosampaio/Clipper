@@ -8,6 +8,7 @@
 
 import UIKit
 
+
 class CommandCell: UITableViewCell {
 
     // MARK: - Outlets
@@ -38,10 +39,15 @@ class CommandCell: UITableViewCell {
     // MARK: - UI Actions
     @IBAction func editAction(_ sender: Any) {
         print("EDIT BUTTON ACTION 🌮")
+        let locationRow = LocationRow()
+        NotificationCenter.default.post(name: Notification.Name(rawValue: "didSelectEditAction"), object: locationRow)
+        
     }
     
     @IBAction func deleteAction(_ sender: Any) {
         print("DELETE BUTTON ACTION 🌮")
+        let locationRow = LocationRow()
+        NotificationCenter.default.post(name: Notification.Name(rawValue: "didSelectDeleteAction"), object: locationRow)
         
     }
     

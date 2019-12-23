@@ -11,6 +11,7 @@ import MapKit
 
 class EditLocationController: UIViewController, UITableViewDataSource, UITableViewDelegate {
 
+
     // MARK: - Properties
     public var locationRow = LocationRow()
     
@@ -24,7 +25,8 @@ class EditLocationController: UIViewController, UITableViewDataSource, UITableVi
     // MARK: - View Life Cycle
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        observerManager()
+        tableView.delegate = self
         tableStructure()
         print("☢️ location Row: \(locationRow)")
         
@@ -37,7 +39,6 @@ class EditLocationController: UIViewController, UITableViewDataSource, UITableVi
         source.append("LabelCell")  // Reference Label
         source.append("TextCell")   // Reference Text
         source.append("CommandCell") // 2 buttons
-
         
         tableView.reloadData()
         
@@ -76,7 +77,6 @@ class EditLocationController: UIViewController, UITableViewDataSource, UITableVi
             return cell
         }else if indexPath.row == 4 {
             let cell = tableView.dequeueReusableCell(withIdentifier: "CommandCell") as! CommandCell
-            
             return cell
         }
         return UITableViewCell()
@@ -102,5 +102,35 @@ class EditLocationController: UIViewController, UITableViewDataSource, UITableVi
         view.endEditing(true)
     }
     
+    // MARK: - Observers
+    private func observerManager() {
+        removelAllObservers()
+        
+        NotificationCenter.default.addObserver(self,
+                                               selector: #selector(didSelectEditAction(_:)),
+                                               name: NSNotification.Name(rawValue: "didSelectEditAction"),
+                                               object: nil)
+        
+        NotificationCenter.default.addObserver(self,
+                                               selector: #selector(didSelectDeleteAction(_:)),
+                                               name: NSNotification.Name(rawValue: "didSelectDeleteAction"),
+                                               object: nil)
+        
+        
+    }
+    private func removelAllObservers() {
+        NotificationCenter.default.removeObserver(self, name: NSNotification.Name(rawValue: "didSelectEditAction"), object: nil)
+        NotificationCenter.default.removeObserver(self, name: NSNotification.Name(rawValue: "didSelectDeleteAction"), object: nil)
+    }
     
+    
+    @objc private func didSelectEditAction(_ sender: NSNotification) {
+        let locationRow = sender.object as! LocationRow
+        print("🎷🎷🎷🎷🎷🎷🎷 didSelectEditAction: \(locationRow)")
+    }
+    
+    @objc private func didSelectDeleteAction(_ sender: NSNotification) {
+        let locationRow = sender.object as! LocationRow
+        print("🥁🥁🥁🥁🥁🥁🥁 didSelectDeleteAction: \(locationRow)")
+    }
 }
