@@ -36,6 +36,7 @@ class EditLocationController: UIViewController, UITableViewDataSource, UITableVi
         source.append("TextCell")   // Localidade Text
         source.append("LabelCell")  // Reference Label
         source.append("TextCell")   // Reference Text
+        source.append("CommandCell") // 2 buttons
         
         tableView.reloadData()
         
@@ -47,7 +48,7 @@ class EditLocationController: UIViewController, UITableViewDataSource, UITableVi
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let backColor = UIColor(red: 245/255, green: 245/255, blue: 245/255, alpha: 1.0)
+        let backgroundColor = UIColor(red: 250/255, green: 250/255, blue: 250/255, alpha: 1.0)
         if indexPath.row == 0 {
             let cell = tableView.dequeueReusableCell(withIdentifier: "LabelCell") as! LabelCell
             cell.titleLabel.text = "Localidade"
@@ -55,7 +56,7 @@ class EditLocationController: UIViewController, UITableViewDataSource, UITableVi
         }else if indexPath.row == 1 {
             let cell = tableView.dequeueReusableCell(withIdentifier: "TextCell") as! TextCell
             cell.titleTextView.text = locationRow.location
-            cell.titleTextView.backgroundColor = backColor
+            cell.titleTextView.backgroundColor = backgroundColor
             cell.titleTextView.layer.cornerRadius = 8
             cell.titleTextView.layer.masksToBounds = true
             return cell
@@ -66,9 +67,13 @@ class EditLocationController: UIViewController, UITableViewDataSource, UITableVi
         }else if indexPath.row == 3 {
             let cell = tableView.dequeueReusableCell(withIdentifier: "TextCell") as! TextCell
             cell.titleTextView.text = locationRow.reference
-            cell.titleTextView.backgroundColor = backColor
+            cell.titleTextView.backgroundColor = backgroundColor
             cell.titleTextView.layer.cornerRadius = 8
             cell.titleTextView.layer.masksToBounds = true
+            return cell
+        }else if indexPath.row == 4 {
+            let cell = tableView.dequeueReusableCell(withIdentifier: "CommandCell") as! CommandCell
+            
             return cell
         }
         return UITableViewCell()
@@ -83,6 +88,8 @@ class EditLocationController: UIViewController, UITableViewDataSource, UITableVi
             return 21
         }else if indexPath.row == 3 {
             return 79
+        }else if indexPath.row == 4 {
+            return 80
         }
         return 0
     }

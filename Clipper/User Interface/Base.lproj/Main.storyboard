@@ -257,7 +257,7 @@
                                                     <rect key="frame" x="20" y="0.0" width="334" height="79"/>
                                                     <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                     <constraints>
-                                                        <constraint firstAttribute="height" constant="63" id="AfS-1t-DJf"/>
+                                                        <constraint firstAttribute="height" constant="79" id="AfS-1t-DJf"/>
                                                         <constraint firstAttribute="width" constant="334" id="QkR-Ui-nz3"/>
                                                     </constraints>
                                                     <color key="textColor" systemColor="labelColor" cocoaTouchSystemColor="darkTextColor"/>
@@ -277,6 +277,53 @@
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <connections>
                                             <outlet property="titleTextView" destination="adY-tc-07f" id="VPi-LN-kqh"/>
+                                        </connections>
+                                    </tableViewCell>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="CommandCell" rowHeight="80" id="6NY-CK-GXd" customClass="CommandCell" customModule="Clipper" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="128" width="374" height="80"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="6NY-CK-GXd" id="yc0-6m-CZZ">
+                                            <rect key="frame" x="0.0" y="0.0" width="374" height="80"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="47F-fb-K1Y">
+                                                    <rect key="frame" x="41" y="11" width="137" height="58"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="58" id="4pV-A9-d7t"/>
+                                                    </constraints>
+                                                    <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="15"/>
+                                                    <state key="normal" title="Editar"/>
+                                                    <connections>
+                                                        <action selector="editAction:" destination="6NY-CK-GXd" eventType="touchUpInside" id="3Lp-jA-aNr"/>
+                                                    </connections>
+                                                </button>
+                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="PoZ-x1-TG2">
+                                                    <rect key="frame" x="198" y="11" width="136" height="58"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" constant="136" id="SVh-Eb-TN3"/>
+                                                        <constraint firstAttribute="height" constant="58" id="nvt-PJ-Kux"/>
+                                                    </constraints>
+                                                    <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="15"/>
+                                                    <state key="normal" title="Excluir"/>
+                                                    <connections>
+                                                        <action selector="deleteAction:" destination="6NY-CK-GXd" eventType="touchUpInside" id="dum-yd-yPh"/>
+                                                    </connections>
+                                                </button>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="47F-fb-K1Y" firstAttribute="baseline" secondItem="PoZ-x1-TG2" secondAttribute="firstBaseline" id="2YL-yc-ais"/>
+                                                <constraint firstItem="PoZ-x1-TG2" firstAttribute="leading" relation="lessThanOrEqual" secondItem="47F-fb-K1Y" secondAttribute="trailing" constant="20" id="36w-gL-mgf"/>
+                                                <constraint firstItem="47F-fb-K1Y" firstAttribute="top" secondItem="yc0-6m-CZZ" secondAttribute="topMargin" id="JaE-fP-8QY"/>
+                                                <constraint firstItem="47F-fb-K1Y" firstAttribute="bottom" secondItem="yc0-6m-CZZ" secondAttribute="bottomMargin" id="Tgs-sG-gtR"/>
+                                                <constraint firstItem="47F-fb-K1Y" firstAttribute="top" secondItem="PoZ-x1-TG2" secondAttribute="top" id="dda-bN-efJ"/>
+                                                <constraint firstAttribute="trailingMargin" secondItem="PoZ-x1-TG2" secondAttribute="trailing" constant="20" id="gUU-e2-74G"/>
+                                                <constraint firstItem="47F-fb-K1Y" firstAttribute="leading" secondItem="yc0-6m-CZZ" secondAttribute="leadingMargin" constant="21" id="mhM-8b-LWa"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <connections>
+                                            <outlet property="deleteButton" destination="PoZ-x1-TG2" id="eFd-o6-61H"/>
+                                            <outlet property="editButton" destination="47F-fb-K1Y" id="LQw-Jo-psQ"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
