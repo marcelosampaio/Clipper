@@ -37,6 +37,7 @@ class EditLocationController: UIViewController, UITableViewDataSource, UITableVi
         source.append("LabelCell")  // Reference Label
         source.append("TextCell")   // Reference Text
         source.append("CommandCell") // 2 buttons
+
         
         tableView.reloadData()
         
@@ -59,6 +60,7 @@ class EditLocationController: UIViewController, UITableViewDataSource, UITableVi
             cell.titleTextView.backgroundColor = backgroundColor
             cell.titleTextView.layer.cornerRadius = 8
             cell.titleTextView.layer.masksToBounds = true
+            cell.titleTextView.autocorrectionType = .no
             return cell
         }else if indexPath.row == 2 {
             let cell = tableView.dequeueReusableCell(withIdentifier: "LabelCell") as! LabelCell
@@ -70,6 +72,7 @@ class EditLocationController: UIViewController, UITableViewDataSource, UITableVi
             cell.titleTextView.backgroundColor = backgroundColor
             cell.titleTextView.layer.cornerRadius = 8
             cell.titleTextView.layer.masksToBounds = true
+            cell.titleTextView.autocorrectionType = .no
             return cell
         }else if indexPath.row == 4 {
             let cell = tableView.dequeueReusableCell(withIdentifier: "CommandCell") as! CommandCell
@@ -91,7 +94,7 @@ class EditLocationController: UIViewController, UITableViewDataSource, UITableVi
         }else if indexPath.row == 4 {
             return 80
         }
-        return 0
+        return 100
     }
     
     // MARK: - Gestures

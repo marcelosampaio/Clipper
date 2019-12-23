@@ -286,24 +286,24 @@
                                             <rect key="frame" x="0.0" y="0.0" width="374" height="80"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="47F-fb-K1Y">
+                                                <button opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="47F-fb-K1Y">
                                                     <rect key="frame" x="41" y="11" width="137" height="58"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="58" id="4pV-A9-d7t"/>
                                                     </constraints>
-                                                    <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="15"/>
-                                                    <state key="normal" title="Editar"/>
+                                                    <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
+                                                    <state key="normal" title="Salvar"/>
                                                     <connections>
                                                         <action selector="editAction:" destination="6NY-CK-GXd" eventType="touchUpInside" id="3Lp-jA-aNr"/>
                                                     </connections>
                                                 </button>
-                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="PoZ-x1-TG2">
+                                                <button opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="PoZ-x1-TG2">
                                                     <rect key="frame" x="198" y="11" width="136" height="58"/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" constant="136" id="SVh-Eb-TN3"/>
                                                         <constraint firstAttribute="height" constant="58" id="nvt-PJ-Kux"/>
                                                     </constraints>
-                                                    <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="15"/>
+                                                    <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
                                                     <state key="normal" title="Excluir"/>
                                                     <connections>
                                                         <action selector="deleteAction:" destination="6NY-CK-GXd" eventType="touchUpInside" id="dum-yd-yPh"/>
