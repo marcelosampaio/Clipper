@@ -9,13 +9,14 @@
 import UIKit
 import MapKit
 
-class EditLocationController: UIViewController {
+class EditLocationController: UIViewController, UITableViewDataSource, UITableViewDelegate {
 
     // MARK: - Properties
     public var locationRow = LocationRow()
     
     // MARK: - Outlets
     @IBOutlet weak var mapView: MKMapView!
+    @IBOutlet weak var tableView: UITableView!
     
     
     // MARK: - View Life Cycle
@@ -26,6 +27,14 @@ class EditLocationController: UIViewController {
         
     }
     
-
+    // MARK: - TableView DataSource and Delegate
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return 1
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: "Cell")
+        return cell!
+    }
 
 }
