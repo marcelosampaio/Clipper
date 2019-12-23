@@ -11,7 +11,8 @@ import UIKit
 class LocationsController: UIViewController, UITableViewDataSource, UITableViewDelegate {
     
     // MARK: - Properties
-    private var source = [String]()
+    private var locationRows = [LocationRow]()
+    private var database = Database()
     
 
     // MARK: - Outlets
@@ -22,19 +23,44 @@ class LocationsController: UIViewController, UITableViewDataSource, UITableViewD
     override func viewDidLoad() {
         
         super.viewDidLoad()
+        getLocations()
 
     }
  
-    // mARK: - TableView Data Source and Delegate
+    // MARK: - TableView Data Source and Delegate
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return source.count
+        return locationRows.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "Cell")
-        cell?.textLabel?.text = source[indexPath.row]
-        return cell!
+        let cell = tableView.dequeueReusableCell(withIdentifier: "LocationCell") as! LocationCell
+        let locationRow = locationRows[indexPath.row]
+        cell.location.text = locationRow.location
+        cell.reference.text = locationRow.reference
+        return cell
+    }
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        performSegue(withIdentifier: "showEditLocation", sender: self)
+    }
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return 133
     }
     
+    // MARK: - Location Data Source
+    private func getLocations() {
+        locationRows = database.getLocations()
+        tableView.reloadData()
+    }
+    
+    // MARK: - Navigation
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "showEditLocation" {
+            let indexPath = tableView.indexPathForSelectedRow
+            let locationRow = locationRows[indexPath!.row]
+            let controller = segue.destination as! EditLocationController
+            controller.locationRow = locationRow
+            
+        }
+    }
     
 }

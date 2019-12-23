@@ -7,6 +7,6 @@
 	<key>deleteLocation</key>
 	<string>delete from location where location=&apos;[LOCATION]&apos; and reference=&apos;[REFERENCE]&apos;</string>
 	<key>getLocations</key>
-	<string>select id, location, reference, latitude, longitude from location</string>
+	<string>select id, location, reference, latitude, longitude from location order by location, reference</string>
 </dict>
 </plist>
