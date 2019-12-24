@@ -9,7 +9,7 @@
 import UIKit
 import MapKit
 
-class EditLocationController: UIViewController, UITableViewDataSource, UITableViewDelegate {
+class EditLocationController: UIViewController, UITableViewDataSource, UITableViewDelegate, MKMapViewDelegate {
 
 
     // MARK: - Properties
@@ -19,6 +19,8 @@ class EditLocationController: UIViewController, UITableViewDataSource, UITableVi
     
     // map support
     private let regionRadius: CLLocationDistance = 1000
+    private var rowPointAnnotations = [LocationRowPoint]()
+    private var annotations = [MKPointAnnotation]()
     
     // MARK: - Outlets
     @IBOutlet weak var mapView: MKMapView!
@@ -29,7 +31,7 @@ class EditLocationController: UIViewController, UITableViewDataSource, UITableVi
     override func viewDidLoad() {
         super.viewDidLoad()
         prepareMapSupport()
-        mapView.isUserInteractionEnabled = false
+        
         observerManager()
         tableView.delegate = self
         tableStructure()
@@ -172,9 +174,62 @@ class EditLocationController: UIViewController, UITableViewDataSource, UITableVi
         return true
     }
     
+    // MARK: - MapKit Delegate
+    func mapView(_ mapView: MKMapView, viewFor annotation: MKAnnotation) -> MKAnnotationView?
+    {
+        if !(annotation is MKPointAnnotation) {
+            return nil
+        }
+
+        let annotationIdentifier = "AnnotationIdentifier"
+        var annotationView = mapView.dequeueReusableAnnotationView(withIdentifier: annotationIdentifier)
+
+        if annotationView == nil {
+            annotationView = MKAnnotationView(annotation: annotation, reuseIdentifier: annotationIdentifier)
+            annotationView!.canShowCallout = false
+//            annotationView?.rightCalloutAccessoryView = UIButton(type: .detailDisclosure)
+
+        }
+        else {
+            annotationView!.annotation = annotation
+        }
+
+        let pinImage = UIImage(named: "savedLocation")
+        annotationView!.image = pinImage
+        
+        return annotationView
+    }
     
     // MARK: - Map Helper
     private func prepareMapSupport() {
+        mapView.delegate = self
+        mapView.isUserInteractionEnabled = false
+        
+        mapView.layer.cornerRadius = 8
+        mapView.layer.masksToBounds = true
+        
+        /////////
+        let myAnnotation: MKPointAnnotation = MKPointAnnotation()
+        myAnnotation.coordinate = CLLocationCoordinate2DMake(CLLocationDegrees(locationRow.latitude), CLLocationDegrees(locationRow.longitude));
+        myAnnotation.title = locationRow.location
+        myAnnotation.subtitle = locationRow.reference
+        
+        mapView.addAnnotation(myAnnotation)  // ⚠️ ATTENTION HERE!!!!!!!! this is for the map
+        annotations.append(myAnnotation)
+        
+        // --------------------------------------------------------------------------
+        // 🌟 this is the new class to pass location row to LocationInfoController
+        // --------------------------------------------------------------------------
+        let rowPointAnnotation = LocationRowPoint()
+        rowPointAnnotation.locationAnnotation = myAnnotation
+        rowPointAnnotation.locationRow = locationRow
+        rowPointAnnotations.append(rowPointAnnotation)
+        // ---------------------------------------------------------------------------
+        /////////
+        
+        
+        // mapView.showAnnotations(mapView.annotations, animated: true)
+        
         // init and center map
         let initialLocation = CLLocation(latitude: locationRow.latitude, longitude: locationRow.longitude)
         centerMapOnLocation(location: initialLocation)

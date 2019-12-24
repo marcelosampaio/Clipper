@@ -247,7 +247,7 @@ class MainController: UIViewController, CLLocationManagerDelegate, MKMapViewDele
         
         return annotationView
     }
-    
+
     func mapView(_ mapView: MKMapView, annotationView view: MKAnnotationView, calloutAccessoryControlTapped control: UIControl) {
         print("🤞 Callout has been tapped -> \(view.annotation!.title! ?? "")")
 //        selectedAnnotationView = view

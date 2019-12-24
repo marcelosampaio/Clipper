@@ -211,6 +211,9 @@
                                 <constraints>
                                     <constraint firstAttribute="height" constant="209" id="U4K-xr-W6D"/>
                                 </constraints>
+                                <connections>
+                                    <outlet property="delegate" destination="mht-Wp-abl" id="qjd-4O-gbI"/>
+                                </connections>
                             </mapView>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" keyboardDismissMode="onDrag" dataMode="prototypes" style="plain" separatorStyle="none" allowsSelection="NO" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="css-Mm-BKf">
                                 <rect key="frame" x="20" y="237" width="374" height="459"/>
