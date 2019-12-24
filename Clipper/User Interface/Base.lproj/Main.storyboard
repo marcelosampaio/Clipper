@@ -85,7 +85,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <navigationBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ccH-cp-H1f">
-                                <rect key="frame" x="0.0" y="0.0" width="414" height="56"/>
+                                <rect key="frame" x="0.0" y="0.0" width="453" height="56"/>
                                 <items>
                                     <navigationItem title="Localidades" id="Okk-A5-JsF"/>
                                 </items>
@@ -299,6 +299,7 @@
                                                 </button>
                                                 <button opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="PoZ-x1-TG2">
                                                     <rect key="frame" x="198" y="11" width="136" height="58"/>
+                                                    <color key="backgroundColor" red="0.93547368049621582" green="0.37840247964856338" blue="0.23027562205017768" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" constant="136" id="SVh-Eb-TN3"/>
                                                         <constraint firstAttribute="height" constant="58" id="nvt-PJ-Kux"/>

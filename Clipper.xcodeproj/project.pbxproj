@@ -22,6 +22,7 @@
 		7F8EBE0923B118FB0083F251 /* TextCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F8EBE0823B118FB0083F251 /* TextCell.swift */; };
 		7F8EBE0B23B146AC0083F251 /* CommandCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F8EBE0A23B146AC0083F251 /* CommandCell.swift */; };
 		7F8EBE0D23B186C50083F251 /* TagText.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F8EBE0C23B186C50083F251 /* TagText.swift */; };
+		7F8EBE0F23B241450083F251 /* UIColor+Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F8EBE0E23B241440083F251 /* UIColor+Utils.swift */; };
 		7F9CB20123730B02000A0045 /* LocationRowPoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F9CB20023730B02000A0045 /* LocationRowPoint.swift */; };
 		7FA67A0D22A41881004236CD /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FA67A0C22A41881004236CD /* AppDelegate.swift */; };
 		7FA67A1222A41881004236CD /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7FA67A1022A41881004236CD /* Main.storyboard */; };
@@ -46,6 +47,7 @@
 		7F8EBE0823B118FB0083F251 /* TextCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextCell.swift; sourceTree = "<group>"; };
 		7F8EBE0A23B146AC0083F251 /* CommandCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommandCell.swift; sourceTree = "<group>"; };
 		7F8EBE0C23B186C50083F251 /* TagText.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TagText.swift; sourceTree = "<group>"; };
+		7F8EBE0E23B241440083F251 /* UIColor+Utils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+Utils.swift"; sourceTree = "<group>"; };
 		7F9CB20023730B02000A0045 /* LocationRowPoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationRowPoint.swift; sourceTree = "<group>"; };
 		7FA67A0922A41881004236CD /* Clipper.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Clipper.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		7FA67A0C22A41881004236CD /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -72,6 +74,7 @@
 			children = (
 				7F233F7722D509D7003F9897 /* UIView+Utils.swift */,
 				7F233F7922D50A65003F9897 /* String+Utils.swift */,
+				7F8EBE0E23B241440083F251 /* UIColor+Utils.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -249,6 +252,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7F8EBE0F23B241450083F251 /* UIColor+Utils.swift in Sources */,
 				7F4D3E1F22DCD99B00D41483 /* LocationInfoController.swift in Sources */,
 				7F398DD822A420C50002AFCF /* Database.swift in Sources */,
 				7F233F7522D4D9D5003F9897 /* InputLocationController.swift in Sources */,

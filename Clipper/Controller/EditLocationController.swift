@@ -51,7 +51,7 @@ class EditLocationController: UIViewController, UITableViewDataSource, UITableVi
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let backgroundColor = UIColor(red: 250/255, green: 250/255, blue: 250/255, alpha: 1.0)
+        
         if indexPath.row == 0 {
             let cell = tableView.dequeueReusableCell(withIdentifier: "LabelCell") as! LabelCell
             cell.titleLabel.text = "Localidade"
@@ -60,7 +60,7 @@ class EditLocationController: UIViewController, UITableViewDataSource, UITableVi
             let cell = tableView.dequeueReusableCell(withIdentifier: "TextCell") as! TextCell
             cell.titleTextView.tag = 1000
             cell.titleTextView.text = locationRow.location
-            cell.titleTextView.backgroundColor = backgroundColor
+            cell.titleTextView.backgroundColor = UIColor.textFieldBackgroundColor
             cell.titleTextView.layer.cornerRadius = 8
             cell.titleTextView.layer.masksToBounds = true
             cell.titleTextView.autocorrectionType = .no
@@ -73,7 +73,7 @@ class EditLocationController: UIViewController, UITableViewDataSource, UITableVi
             let cell = tableView.dequeueReusableCell(withIdentifier: "TextCell") as! TextCell
             cell.titleTextView.tag = 1001
             cell.titleTextView.text = locationRow.reference
-            cell.titleTextView.backgroundColor = backgroundColor
+            cell.titleTextView.backgroundColor = UIColor.textFieldBackgroundColor
             cell.titleTextView.layer.cornerRadius = 8
             cell.titleTextView.layer.masksToBounds = true
             cell.titleTextView.autocorrectionType = .no
@@ -150,9 +150,11 @@ class EditLocationController: UIViewController, UITableViewDataSource, UITableVi
     @objc private func didInputLocation(_ sender: NSNotification) {
         let tagText = sender.object as! TagText
         if tagText.tag == 1000 {
+            print("🅾️ location: \(tagText.text)")
             locationRow.location = tagText.text
         }else if tagText.tag == 1001 {
             locationRow.reference = tagText.text
+            print("🅾️ reference: \(tagText.text)")
         }
 
     }

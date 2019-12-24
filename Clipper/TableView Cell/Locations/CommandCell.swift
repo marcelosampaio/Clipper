@@ -18,14 +18,14 @@ class CommandCell: UITableViewCell {
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
-        let backgroundColor = UIColor(red: 220/255, green: 220/255, blue: 220/255, alpha: 1.0)
         editButton.layer.cornerRadius = 8
         editButton.layer.masksToBounds = true
-        editButton.backgroundColor = backgroundColor
+        editButton.backgroundColor = UIColor.buttonBackgroundColor
         
         deleteButton.layer.cornerRadius = 8
         deleteButton.layer.masksToBounds = true
-        deleteButton.backgroundColor = backgroundColor
+        deleteButton.backgroundColor = UIColor.destructiveButtonBackgroundColor
+        deleteButton.setTitleColor(UIColor.white, for: .normal)
         
     }
 

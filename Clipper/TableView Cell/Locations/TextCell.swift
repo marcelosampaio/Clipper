@@ -36,7 +36,7 @@ class TextCell: UITableViewCell, UITextViewDelegate {
             tagText.tag = 1001
         }
         tagText.text = textView.text
-        
+        print("🅾️ textView tag: \(textView.tag)")
         // post notification to edit location controller
         NotificationCenter.default.post(name: Notification.Name(rawValue: "didInputLocation"), object: tagText)
     }
