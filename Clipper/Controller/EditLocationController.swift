@@ -168,7 +168,10 @@ class EditLocationController: UIViewController, UITableViewDataSource, UITableVi
     
     // MARK: - Data Entry Helper
     private func isValidDataEntry() -> Bool {
-        
+        if !locationRow.location.isValidName()! {
+            view.alert(msg: "Informe o nome da localidade!", sender: self)
+            return false
+        }
         print("🎸 updated location row: \(locationRow)")
 
         return true
