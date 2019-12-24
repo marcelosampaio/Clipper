@@ -41,8 +41,11 @@ class InputLocationController: UIViewController {
 
         frameView.layer.cornerRadius = 8
         frameView.layer.masksToBounds = true
-//        saveButton.layer.borderColor = UIColor.lightGray.cgColor
-//        saveButton.layer.borderWidth = 0.45
+        
+        saveButton.backgroundColor = UIColor.buttonBackgroundColor
+//        saveButton.setTitleColor(UIColor.black, for: .normal)
+        saveButton.layer.cornerRadius = 8
+        saveButton.layer.masksToBounds = true
 
         
     }
