@@ -39,15 +39,13 @@ class CommandCell: UITableViewCell {
     // MARK: - UI Actions
     @IBAction func editAction(_ sender: Any) {
         print("EDIT BUTTON ACTION 🌮")
-        let locationRow = LocationRow()
-        NotificationCenter.default.post(name: Notification.Name(rawValue: "didSelectEditAction"), object: locationRow)
+        NotificationCenter.default.post(name: Notification.Name(rawValue: "didSelectEditAction"), object: nil)
         
     }
     
     @IBAction func deleteAction(_ sender: Any) {
         print("DELETE BUTTON ACTION 🌮")
-        let locationRow = LocationRow()
-        NotificationCenter.default.post(name: Notification.Name(rawValue: "didSelectDeleteAction"), object: locationRow)
+        NotificationCenter.default.post(name: Notification.Name(rawValue: "didSelectDeleteAction"), object: nil)
         
     }
     

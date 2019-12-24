@@ -8,7 +8,7 @@
 
 import UIKit
 
-class TextCell: UITableViewCell {
+class TextCell: UITableViewCell, UITextViewDelegate {
 
     // MARK: - Outlets
     @IBOutlet weak var titleTextView: UITextView!
@@ -17,12 +17,29 @@ class TextCell: UITableViewCell {
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
+        
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
+        titleTextView.delegate = self
 
         // Configure the view for the selected state
     }
 
+    // MARK: - UITextViewDelegate
+    func textViewDidEndEditing(_ textView: UITextView) {
+        let tagText = TagText()
+        if textView.tag == 1000 {
+            tagText.tag = 1000
+        }else if tag == 1001 {
+            tagText.tag = 1001
+        }
+        tagText.text = textView.text
+        
+        // post notification to edit location controller
+        NotificationCenter.default.post(name: Notification.Name(rawValue: "didInputLocation"), object: tagText)
+    }
+    
+    
 }
