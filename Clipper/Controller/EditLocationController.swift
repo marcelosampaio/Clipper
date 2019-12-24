@@ -17,6 +17,9 @@ class EditLocationController: UIViewController, UITableViewDataSource, UITableVi
     
     private var source = [String]()
     
+    // map support
+    private let regionRadius: CLLocationDistance = 1000
+    
     // MARK: - Outlets
     @IBOutlet weak var mapView: MKMapView!
     @IBOutlet weak var tableView: UITableView!
@@ -25,6 +28,7 @@ class EditLocationController: UIViewController, UITableViewDataSource, UITableVi
     // MARK: - View Life Cycle
     override func viewDidLoad() {
         super.viewDidLoad()
+        prepareMapSupport()
         mapView.isUserInteractionEnabled = false
         observerManager()
         tableView.delegate = self
@@ -168,4 +172,16 @@ class EditLocationController: UIViewController, UITableViewDataSource, UITableVi
         return true
     }
     
+    
+    // MARK: - Map Helper
+    private func prepareMapSupport() {
+        // init and center map
+        let initialLocation = CLLocation(latitude: locationRow.latitude, longitude: locationRow.longitude)
+        centerMapOnLocation(location: initialLocation)
+    }
+    private func centerMapOnLocation(location: CLLocation) {
+        let coordinateRegion = MKCoordinateRegion(center: location.coordinate,
+                                                  latitudinalMeters: regionRadius, longitudinalMeters: regionRadius)
+        mapView.setRegion(coordinateRegion, animated: true)
+    }
 }

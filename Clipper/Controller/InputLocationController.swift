@@ -30,7 +30,6 @@ class InputLocationController: UIViewController {
     // MARK: - Outlets
     @IBOutlet weak var frameView: UIView!
     @IBOutlet weak var saveButton: UIButton!
-    
     @IBOutlet weak var location: UITextField!
     @IBOutlet weak var reference: UITextField!
     
