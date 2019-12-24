@@ -31,6 +31,7 @@ class LocationInfoController: UITableViewController, UIPickerViewDelegate, UIPic
     @IBOutlet weak var pantsPicker: UIPickerView!
     @IBOutlet weak var shirtsPicker: UIPickerView!
     @IBOutlet weak var commandButton: UIButton!
+    @IBOutlet weak var removeButton: UIButton!
     
     
     
@@ -53,8 +54,13 @@ class LocationInfoController: UITableViewController, UIPickerViewDelegate, UIPic
     private func configUI() {
         commandButton.layer.cornerRadius = 8
         commandButton.layer.masksToBounds = true
-        commandButton.layer.borderColor = UIColor.darkGray.cgColor
-        commandButton.layer.borderWidth = 1
+        commandButton.backgroundColor = UIColor.buttonBackgroundColor
+
+        removeButton.layer.cornerRadius = 8
+        removeButton.layer.masksToBounds = true
+        removeButton.backgroundColor = UIColor.destructiveButtonBackgroundColor
+        removeButton.setTitleColor(UIColor.white, for: .normal)
+        
     }
     
     // MARK: - Info Helper

@@ -437,8 +437,8 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="eNE-Ll-oqe">
-                                                    <rect key="frame" x="45" y="24" width="324" height="55"/>
-                                                    <fontDescription key="fontDescription" type="boldSystem" pointSize="20"/>
+                                                    <rect key="frame" x="91" y="22" width="232" height="58"/>
+                                                    <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
                                                     <state key="normal" title="Copiar e abrir o Uber"/>
                                                     <connections>
                                                         <action selector="copyInfoOpenUber:" destination="KYG-ie-Zo9" eventType="touchUpInside" id="B1V-wX-fHI"/>
@@ -446,24 +446,24 @@
                                                 </button>
                                             </subviews>
                                             <constraints>
-                                                <constraint firstItem="eNE-Ll-oqe" firstAttribute="leading" secondItem="RtJ-3b-qVB" secondAttribute="leadingMargin" constant="25" id="59A-Rf-5uM"/>
-                                                <constraint firstAttribute="bottomMargin" secondItem="eNE-Ll-oqe" secondAttribute="bottom" constant="12" id="Ri6-LD-bgZ"/>
-                                                <constraint firstAttribute="trailingMargin" secondItem="eNE-Ll-oqe" secondAttribute="trailing" constant="25" id="Xr0-5E-cET"/>
-                                                <constraint firstItem="eNE-Ll-oqe" firstAttribute="top" secondItem="RtJ-3b-qVB" secondAttribute="topMargin" constant="13" id="wXY-4w-MDP"/>
+                                                <constraint firstItem="eNE-Ll-oqe" firstAttribute="leading" secondItem="RtJ-3b-qVB" secondAttribute="leadingMargin" constant="71" id="59A-Rf-5uM"/>
+                                                <constraint firstAttribute="bottomMargin" secondItem="eNE-Ll-oqe" secondAttribute="bottom" constant="11" id="Ri6-LD-bgZ"/>
+                                                <constraint firstAttribute="trailingMargin" secondItem="eNE-Ll-oqe" secondAttribute="trailing" constant="71" id="Xr0-5E-cET"/>
+                                                <constraint firstItem="eNE-Ll-oqe" firstAttribute="top" secondItem="RtJ-3b-qVB" secondAttribute="topMargin" constant="11" id="wXY-4w-MDP"/>
                                             </constraints>
                                         </tableViewCellContentView>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                     </tableViewCell>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" id="IZ7-zm-bUL" userLabel="Remove Cell">
-                                        <rect key="frame" x="0.0" y="431" width="414" height="44"/>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" rowHeight="68" id="IZ7-zm-bUL" userLabel="Remove Cell">
+                                        <rect key="frame" x="0.0" y="431" width="414" height="68"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="IZ7-zm-bUL" id="u7T-KK-1PM">
-                                            <rect key="frame" x="0.0" y="0.0" width="414" height="44"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="414" height="68"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="CbU-4t-CsE">
-                                                    <rect key="frame" x="20" y="7" width="374" height="30"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                                    <rect key="frame" x="91" y="5" width="232" height="58"/>
+                                                    <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
                                                     <state key="normal" title="Remover localidade"/>
                                                     <connections>
                                                         <action selector="removeAnnotation:" destination="KYG-ie-Zo9" eventType="touchUpInside" id="J2R-j6-iHX"/>
@@ -472,10 +472,10 @@
                                             </subviews>
                                             <color key="tintColor" red="1" green="0.14913141730000001" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                             <constraints>
-                                                <constraint firstAttribute="bottom" secondItem="CbU-4t-CsE" secondAttribute="bottom" constant="7" id="1bN-hz-hbj"/>
-                                                <constraint firstItem="CbU-4t-CsE" firstAttribute="leading" secondItem="u7T-KK-1PM" secondAttribute="leading" constant="20" id="7FB-Nu-Y5m"/>
-                                                <constraint firstAttribute="trailing" secondItem="CbU-4t-CsE" secondAttribute="trailing" constant="20" id="dYU-9d-qjr"/>
-                                                <constraint firstItem="CbU-4t-CsE" firstAttribute="top" secondItem="u7T-KK-1PM" secondAttribute="top" constant="7" id="uSG-B6-lRl"/>
+                                                <constraint firstAttribute="bottom" secondItem="CbU-4t-CsE" secondAttribute="bottom" constant="5" id="1bN-hz-hbj"/>
+                                                <constraint firstItem="CbU-4t-CsE" firstAttribute="leading" secondItem="u7T-KK-1PM" secondAttribute="leading" constant="91" id="7FB-Nu-Y5m"/>
+                                                <constraint firstAttribute="trailing" secondItem="CbU-4t-CsE" secondAttribute="trailing" constant="91" id="dYU-9d-qjr"/>
+                                                <constraint firstItem="CbU-4t-CsE" firstAttribute="top" secondItem="u7T-KK-1PM" secondAttribute="top" constant="5" id="uSG-B6-lRl"/>
                                             </constraints>
                                         </tableViewCellContentView>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -492,12 +492,13 @@
                         <outlet property="commandButton" destination="eNE-Ll-oqe" id="MDJ-wf-lWR"/>
                         <outlet property="greetingsLabel" destination="0hX-VZ-K3z" id="foI-bn-daH"/>
                         <outlet property="pantsPicker" destination="rzN-qU-UQw" id="3k0-mI-bts"/>
+                        <outlet property="removeButton" destination="CbU-4t-CsE" id="d5A-Fk-Huq"/>
                         <outlet property="shirtsPicker" destination="S9i-vg-n4J" id="i2c-Ce-kwf"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="VuX-O7-XmF" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1370" y="98"/>
+            <point key="canvasLocation" x="1369.5652173913045" y="97.826086956521749"/>
         </scene>
         <!--Input Location Controller-->
         <scene sceneID="bdD-S9-Zcm">
