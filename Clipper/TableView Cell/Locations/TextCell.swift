@@ -32,11 +32,12 @@ class TextCell: UITableViewCell, UITextViewDelegate {
         let tagText = TagText()
         if textView.tag == 1000 {
             tagText.tag = 1000
-        }else if tag == 1001 {
+        }else if textView.tag == 1001 {
             tagText.tag = 1001
         }
         tagText.text = textView.text
-        print("🅾️ textView tag: \(textView.tag)")
+        print("🅾️ TEXT VIEW ☦️ tag: \(tagText.tag)")
+        print("🅾️ tagText tag: \(tagText.tag)")
         // post notification to edit location controller
         NotificationCenter.default.post(name: Notification.Name(rawValue: "didInputLocation"), object: tagText)
     }
