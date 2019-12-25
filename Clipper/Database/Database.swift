@@ -56,7 +56,43 @@ class Database : NSObject {
         self.closeDB()
         
     }
+    public func deleteLocationById(id: Int) {
+        
+        self.openDB()
+        
+        let sql = self.getDeleteLocationByIdStatment(id: id)
+        
+        print("🤙 sql: \(sql)")
+        
+        if sqlite3_exec(db, sql, nil, nil, nil) != SQLITE_OK {
+            print("🆘 error deleting row by id from the table 🆘")
+            return
+        }else{
+            print("👉 delete by id OK")
+        }
+        
+        self.closeDB()
+        
+    }
     
+    public func updateLocation(location: String, reference: String, id: Int) {
+        
+        self.openDB()
+        
+        let sql = self.getUpdateLocationStatment(location: location, reference: reference, id: id)
+        
+        print("🤙 sql: \(sql)")
+        
+        if sqlite3_exec(db, sql, nil, nil, nil) != SQLITE_OK {
+            print("🆘 error updateing row from the table 🆘")
+            return
+        }else{
+            print("👉 update OK")
+        }
+        
+        self.closeDB()
+        
+    }
     
     public func getLocations() -> [LocationRow] {
 
@@ -233,6 +269,28 @@ class Database : NSObject {
         return sql
     }
     
+    private func getDeleteLocationByIdStatment(id: Int) -> String {
+        
+        let sqlStatment = Database.getSql("deleteLocationById")
+        
+        let sql = sqlStatment.replacingOccurrences(of: "[ID]", with: String(id))
+
+        
+        return sql
+    }
     
+    
+    private func getUpdateLocationStatment(location: String, reference: String, id: Int) -> String {
+        
+        let sqlStatment = Database.getSql("updateLocation")
+        
+        
+        var sql = sqlStatment.replacingOccurrences(of: "[LOCATION]", with: location)
+        sql = sql.replacingOccurrences(of: "[REFERENCE]", with: reference)
+        sql = sql.replacingOccurrences(of: "[ID]", with: String(id))
+
+        
+        return sql
+    }
 }
 

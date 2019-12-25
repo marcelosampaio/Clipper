@@ -6,7 +6,11 @@
 	<string>insert into location (location, latitude, longitude, reference) values (&apos;[LOCATION]&apos;, [LATITUDE], [LONGITUDE], &apos;[REFERENCE]&apos;)</string>
 	<key>deleteLocation</key>
 	<string>delete from location where location=&apos;[LOCATION]&apos; and reference=&apos;[REFERENCE]&apos;</string>
+	<key>deleteLocationById</key>
+	<string>delete from location where id = [ID]</string>
 	<key>getLocations</key>
 	<string>select id, location, reference, latitude, longitude from location order by location, reference</string>
+	<key>updateLocation</key>
+	<string>update location set location = &apos;[LOCATION&apos;, reference = &apos;REFERENCE&apos; where id = [ID]</string>
 </dict>
 </plist>

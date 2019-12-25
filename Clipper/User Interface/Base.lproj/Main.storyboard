@@ -74,7 +74,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1011.5942028985507" y="-654.61956521739137"/>
+            <point key="canvasLocation" x="1012" y="-655"/>
         </scene>
         <!--Locations Controller-->
         <scene sceneID="AwG-wX-iu1">
@@ -85,7 +85,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <navigationBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ccH-cp-H1f">
-                                <rect key="frame" x="0.0" y="0.0" width="453" height="56"/>
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="56"/>
                                 <items>
                                     <navigationItem title="Localidades" id="Okk-A5-JsF"/>
                                 </items>

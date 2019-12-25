@@ -16,6 +16,7 @@ class EditLocationController: UIViewController, UITableViewDataSource, UITableVi
     public var locationRow = LocationRow()
     
     private var source = [String]()
+    private var database = Database()
     
     // map support
     private let regionRadius: CLLocationDistance = 1000
@@ -39,7 +40,7 @@ class EditLocationController: UIViewController, UITableViewDataSource, UITableVi
         
     }
     
-    // MARK: View Table Structure
+    // MARK: - View Table Structure
     private func tableStructure() {
         source.append("LabelCell")  // Localidade Label
         source.append("TextCell")   // Localidade Text
@@ -143,13 +144,15 @@ class EditLocationController: UIViewController, UITableViewDataSource, UITableVi
     
     @objc private func didSelectEditAction(_ sender: NSNotification) {
         if isValidDataEntry() {
-            print("..... 🎫:")
+            database.updateLocation(location: locationRow.location, reference: locationRow.reference, id: locationRow.locationId)
+            self.dismiss(animated: true, completion: nil)
         }
-        print("🎷🎷🎷🎷🎷🎷🎷 didSelectEditAction: \(locationRow)")
+        view.alert(msg: "Informe localidade!", sender: self)
     }
     
     @objc private func didSelectDeleteAction(_ sender: NSNotification) {
         print("🥁🥁🥁🥁🥁🥁🥁 didSelectDeleteAction: \(locationRow)")
+        
     }
     
     
