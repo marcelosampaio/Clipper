@@ -196,9 +196,7 @@ class Database : NSObject {
         
     }
     
-    
-    
-    
+
     private func bundlePath() -> String {
         // db file path (resource path)
         let bundle = Bundle.main

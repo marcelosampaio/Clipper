@@ -9,6 +9,12 @@
 import UIKit
 import MapKit
 
+// MARK: - Prototols
+protocol EditLocationDelegate: class {
+    func willRefreshMapData()
+}
+
+
 class EditLocationController: UIViewController, UITableViewDataSource, UITableViewDelegate, MKMapViewDelegate {
 
 
@@ -22,6 +28,10 @@ class EditLocationController: UIViewController, UITableViewDataSource, UITableVi
     private let regionRadius: CLLocationDistance = 1000
     private var rowPointAnnotations = [LocationRowPoint]()
     private var annotations = [MKPointAnnotation]()
+    
+    // delegate
+    weak var delegate: EditLocationDelegate?
+    
     
     // MARK: - Outlets
     @IBOutlet weak var mapView: MKMapView!
@@ -144,14 +154,31 @@ class EditLocationController: UIViewController, UITableViewDataSource, UITableVi
     
     @objc private func didSelectEditAction(_ sender: NSNotification) {
         if isValidDataEntry() {
+            
+            // update database info
             database.updateLocation(location: locationRow.location, reference: locationRow.reference, id: locationRow.locationId)
+            
+            // call back main caller
+            delegate?.willRefreshMapData()
+            
+            // dismiss viw controller
             self.dismiss(animated: true, completion: nil)
+            
         }
         view.alert(msg: "Informe localidade!", sender: self)
     }
     
     @objc private func didSelectDeleteAction(_ sender: NSNotification) {
         print("🥁🥁🥁🥁🥁🥁🥁 didSelectDeleteAction: \(locationRow)")
+        
+        // remove database info
+        database.deleteLocationById(id: locationRow.locationId)
+        
+        // call back main caller
+        delegate?.willRefreshMapData()
+        
+        // dismiss viw controller
+        self.dismiss(animated: true, completion: nil)
         
     }
     

@@ -8,11 +8,21 @@
 
 import UIKit
 
-class LocationsController: UIViewController, UITableViewDataSource, UITableViewDelegate {
+// MARK: - Prototols
+protocol LocationsDelegate: class {
+    func willRefreshMapData()
+}
+
+class LocationsController: UIViewController, UITableViewDataSource, UITableViewDelegate, EditLocationDelegate {
+
+    
     
     // MARK: - Properties
     private var locationRows = [LocationRow]()
     private var database = Database()
+    
+    // delegate
+    weak var delegate: LocationsDelegate?
     
 
     // MARK: - Outlets
@@ -25,6 +35,11 @@ class LocationsController: UIViewController, UITableViewDataSource, UITableViewD
         super.viewDidLoad()
         getLocations()
 
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        print("📍 locations controller view will disappear 📍")
     }
  
     // MARK: - TableView Data Source and Delegate
@@ -48,6 +63,7 @@ class LocationsController: UIViewController, UITableViewDataSource, UITableViewD
     
     // MARK: - Location Data Source
     private func getLocations() {
+        locationRows.removeAll()
         locationRows = database.getLocations()
         tableView.reloadData()
     }
@@ -58,9 +74,18 @@ class LocationsController: UIViewController, UITableViewDataSource, UITableViewD
             let indexPath = tableView.indexPathForSelectedRow
             let locationRow = locationRows[indexPath!.row]
             let controller = segue.destination as! EditLocationController
+            controller.delegate = self
             controller.locationRow = locationRow
             
         }
     }
-    
+ 
+    // MARK: - Edit Location Delegate
+    func willRefreshMapData() {
+        print("📕 Locations controller - Will Refresh Map Data 📕")
+        getLocations()
+        tableView.reloadData()
+        delegate?.willRefreshMapData()
+        
+    }
 }

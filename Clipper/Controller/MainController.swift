@@ -9,7 +9,9 @@
 import UIKit
 import MapKit
 
-class MainController: UIViewController, CLLocationManagerDelegate, MKMapViewDelegate, InputLocationDelegate {
+class MainController: UIViewController, CLLocationManagerDelegate, MKMapViewDelegate, InputLocationDelegate, LocationsDelegate {
+
+    
 
     
     // MARK: - Propertires
@@ -280,6 +282,9 @@ class MainController: UIViewController, CLLocationManagerDelegate, MKMapViewDele
             let controller = segue.destination as! LocationInfoController
 //            controller.annotationView = selectedAnnotationView
             controller.locationRowPoint = selectedLocationRowPoint
+        }else if segue.identifier == "showLocations" {
+            let controller = segue.destination as! LocationsController
+            controller.delegate = self
         }
     }
     
@@ -289,40 +294,49 @@ class MainController: UIViewController, CLLocationManagerDelegate, MKMapViewDele
         getLocations()
     }
     
-        // MARK: - Acion Sheet Helper
-        private func actionSheetHelper() {
+    // MARK: - Locations Delegate
+    func willRefreshMapData() {
+        // get map locations
+        getLocations()
+    }
+    
+    
+    // MARK: - Acion Sheet Helper
+    private func actionSheetHelper() {
 
-            let alertController = UIAlertController(title: nil , message: nil, preferredStyle: .actionSheet)
-            //        let okAction = UIAlertAction(title: "OK", style: .default, handler: nil)
-            let newLocationAction = UIAlertAction(title: "Nova Localidade", style: .default) { (newLocation) in
-                // completion
-                self.performSegue(withIdentifier: "showInput", sender: self)
-                
-            }
-            alertController.addAction(newLocationAction)
-            
-            let infoAction = UIAlertAction(title: "Ver Localidades", style: .default) { (info) in
-                // completion
-                self.performSegue(withIdentifier: "showLocations", sender: self)
-            }
-            alertController.addAction(infoAction)
-            
-            
-            let cancelAction = UIAlertAction(title: "Cancelar", style: .cancel) { (nothingAction) in
-                // completion
-            }
-            alertController.addAction(cancelAction)
-            //
-
-            
-            if let popoverPresentationController = alertController.popoverPresentationController {
-                popoverPresentationController.sourceView = self.view
-                popoverPresentationController.sourceRect = self.view.bounds
-            }
-            self.present(alertController, animated: true, completion: nil)
-            
+        let alertController = UIAlertController(title: nil , message: nil, preferredStyle: .actionSheet)
+        //        let okAction = UIAlertAction(title: "OK", style: .default, handler: nil)
+        let newLocationAction = UIAlertAction(title: "Nova Localidade", style: .default) { (newLocation) in
+            // completion
+            self.performSegue(withIdentifier: "showInput", sender: self)
             
         }
+        alertController.addAction(newLocationAction)
+        
+        let infoAction = UIAlertAction(title: "Ver Localidades", style: .default) { (info) in
+            // completion
+            self.performSegue(withIdentifier: "showLocations", sender: self)
+        }
+        alertController.addAction(infoAction)
+        
+        
+        let cancelAction = UIAlertAction(title: "Cancelar", style: .cancel) { (nothingAction) in
+            // completion
+        }
+        alertController.addAction(cancelAction)
+        //
+
+        
+        if let popoverPresentationController = alertController.popoverPresentationController {
+            popoverPresentationController.sourceView = self.view
+            popoverPresentationController.sourceRect = self.view.bounds
+        }
+        self.present(alertController, animated: true, completion: nil)
+        
+        
+    }
+    
+
     
     
 }
