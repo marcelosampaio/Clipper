@@ -11,6 +11,6 @@
 	<key>getLocations</key>
 	<string>select id, location, reference, latitude, longitude from location order by location, reference</string>
 	<key>updateLocation</key>
-	<string>update location set location = &apos;[LOCATION&apos;, reference = &apos;REFERENCE&apos; where id = [ID]</string>
+	<string>update location set location = &apos;[LOCATION]&apos;, reference = &apos;[REFERENCE]&apos; where id = [ID]</string>
 </dict>
 </plist>
