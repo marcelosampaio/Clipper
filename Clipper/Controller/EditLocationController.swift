@@ -169,16 +169,47 @@ class EditLocationController: UIViewController, UITableViewDataSource, UITableVi
     }
     
     @objc private func didSelectDeleteAction(_ sender: NSNotification) {
-        print("🥁🥁🥁🥁🥁🥁🥁 didSelectDeleteAction: \(locationRow)")
         
-        // remove database info
-        database.deleteLocationById(id: locationRow.locationId)
+        let alertController = UIAlertController(title: "Você tem certaza que deseja remover a localidade?", message: nil, preferredStyle: .alert)
         
-        // call back main caller
-        delegate?.willRefreshMapData()
+        let okAction = UIAlertAction(title: "Remover Localidade", style: .destructive) { (action) in
+            print("🥁🥁🥁🥁🥁🥁🥁 didSelectDeleteAction: \(self.locationRow)")
+            
+            // remove database info
+            self.database.deleteLocationById(id: self.locationRow.locationId)
+            
+            // call back main caller
+            self.delegate?.willRefreshMapData()
+            
+            // dismiss viw controller
+            self.dismiss(animated: true, completion: nil)
+
+//            self.navigationController?.popViewController(animated: true)
+
+
+        }
+        let cancelAction = UIAlertAction(title: "Cancelar", style: .default, handler: nil)
         
-        // dismiss viw controller
-        self.dismiss(animated: true, completion: nil)
+        alertController.addAction(okAction)
+        alertController.addAction(cancelAction)
+        
+        present(alertController, animated: true) {
+        }
+        
+        
+        
+        
+        ////////////////
+//        print("🥁🥁🥁🥁🥁🥁🥁 didSelectDeleteAction: \(locationRow)")
+//
+//        // remove database info
+//        database.deleteLocationById(id: locationRow.locationId)
+//
+//        // call back main caller
+//        delegate?.willRefreshMapData()
+//
+//        // dismiss viw controller
+//        self.dismiss(animated: true, completion: nil)
         
     }
     
