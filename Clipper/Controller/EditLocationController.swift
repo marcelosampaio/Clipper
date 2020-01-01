@@ -71,7 +71,7 @@ class EditLocationController: UIViewController, UITableViewDataSource, UITableVi
         
         if indexPath.row == 0 {
             let cell = tableView.dequeueReusableCell(withIdentifier: "LabelCell") as! LabelCell
-            cell.titleLabel.text = "Localidade"
+            cell.titleLabel.text = "📍 Localidade"
             return cell
         }else if indexPath.row == 1 {
             let cell = tableView.dequeueReusableCell(withIdentifier: "TextCell") as! TextCell
