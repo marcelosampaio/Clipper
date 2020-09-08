@@ -1,8 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
-<plist version="1.0">
-<dict>
-	<key>addSale</key>
-	<string>insert into PagSeguro values (&apos;[Transacao_ID]&apos;, &apos;[Cliente_Nome]&apos;, &apos;[Cliente_Email]&apos;, [Debito_Credito], &apos;[Tipo_Transacao]&apos;, &apos;[Status]&apos;, &apos;[Tipo_Pagamento]&apos;, [Valor_Bruto], [Valor_Desconto], [Valor_Taxa], [Valor_Liquido], &apos;[Transportadora]&apos;, &apos;[Num_Envio]&apos;, &apos;[Data_Transacao]&apos;, &apos;[Data_Compensacao]&apos;, &apos;[Ref_Transacao]&apos;, [Parcelas], &apos;[Codigo_Usuario]&apos;, &apos;[Codigo_Venda]&apos;, &apos;[Serial_Leitor]&apos;, [Recebimentos], [Recebidos], [Valor_Recebido], [Valor_Tarifa_Intermediacao], [Valor_Taxa_Intermediacao], [Valor_Taxa_Parcelamento], [Valor_Tarifa_Boleto], &apos;[Bandeira_Cartao_Credito]&apos;)</string>
-</dict>
-</plist>

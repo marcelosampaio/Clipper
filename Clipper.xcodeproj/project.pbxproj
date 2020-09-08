@@ -29,7 +29,6 @@
 		7FA67A1422A41883004236CD /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7FA67A1322A41883004236CD /* Assets.xcassets */; };
 		7FA67A1722A41883004236CD /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7FA67A1522A41883004236CD /* LaunchScreen.storyboard */; };
 		7FA67A2022A418C7004236CD /* MainController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FA67A1F22A418C7004236CD /* MainController.swift */; };
-		7FF73FD92507FDDA00F9A380 /* ConfigDB.plist in Resources */ = {isa = PBXBuildFile; fileRef = 7FF73FD82507FDDA00F9A380 /* ConfigDB.plist */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -57,7 +56,6 @@
 		7FA67A1622A41883004236CD /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		7FA67A1822A41883004236CD /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		7FA67A1F22A418C7004236CD /* MainController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainController.swift; sourceTree = "<group>"; };
-		7FF73FD82507FDDA00F9A380 /* ConfigDB.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = ConfigDB.plist; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -168,7 +166,6 @@
 				7F233F7B22D50CE7003F9897 /* location.db */,
 				7FA67A0C22A41881004236CD /* AppDelegate.swift */,
 				7F398DD922A421A80002AFCF /* Config.plist */,
-				7FF73FD82507FDDA00F9A380 /* ConfigDB.plist */,
 			);
 			path = Root;
 			sourceTree = "<group>";
@@ -242,7 +239,6 @@
 			files = (
 				7F398DDA22A421A80002AFCF /* Config.plist in Resources */,
 				7FA67A1722A41883004236CD /* LaunchScreen.storyboard in Resources */,
-				7FF73FD92507FDDA00F9A380 /* ConfigDB.plist in Resources */,
 				7FA67A1422A41883004236CD /* Assets.xcassets in Resources */,
 				7FA67A1222A41881004236CD /* Main.storyboard in Resources */,
 				7F233F7C22D50CE7003F9897 /* location.db in Resources */,
