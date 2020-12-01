@@ -17,6 +17,9 @@ class Database : NSObject {
     private var db : OpaquePointer?
     private var statement: OpaquePointer?
     
+    // Constants
+    private let databaseName = "location.db"
+    
     
     // MARK: - Database Queries
     public func addLocation(location: String, reference: String, coordinate: CLLocationCoordinate2D) {
@@ -207,7 +210,7 @@ class Database : NSObject {
     }
     
     private func databasePath() -> String {
-        return NSSearchPathForDirectoriesInDomains(.documentDirectory, .userDomainMask, true)[0] + "/" + "location.db"
+        return NSSearchPathForDirectoriesInDomains(.documentDirectory, .userDomainMask, true)[0] + "/" + databaseName
     }
     
     
